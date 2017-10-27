@@ -7,7 +7,13 @@ import { TabNavigator } from "react-navigation";
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
-    title: 'Home page'
+    title: 'Home page',
+    tabBarIcon: () => (
+      <Image
+        source = {require('./assets/icons/home-button.png')}
+        style = {styles.icon}
+      / >
+    ),
   };
   render() {
     //const { navigate } = this.props.navigation;
@@ -24,6 +30,12 @@ class HomeScreen extends React.Component {
 class SecondScreen extends React.Component {
   static navigationOptions = {
     title: 'Second Screen',
+    tabBarIcon: () => (
+      <Image
+        source = {require('./assets/icons/small-bookmark.png')}
+        style = {styles.icon}
+      / >
+    ),
   };
   render() {
     return(
@@ -38,7 +50,9 @@ const ShwopApp = TabNavigator({
     Home: {
       screen: HomeScreen
     },
-    Second: { screen: SecondScreen}
+    Second: {
+      screen: SecondScreen
+    }
 });
 
 export default class App extends React.Component {
@@ -58,5 +72,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+
+  icon:{
+    width: 24,
+    height: 24
   },
 });
