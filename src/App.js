@@ -27,9 +27,9 @@ class HomeScreen extends React.Component {
   }
 }
 
-class SecondScreen extends React.Component {
+class ProfileScreen extends React.Component {
   static navigationOptions = {
-    title: 'Second Screen',
+    title: 'Profile',
     tabBarIcon: () => (
       <Image
         source = {require('./assets/icons/small-bookmark.png')}
@@ -40,7 +40,45 @@ class SecondScreen extends React.Component {
   render() {
     return(
       <View>
-        <Text>Yo Yo Yo</Text>
+        <Text>Profile Screen</Text>
+      </View>
+    );
+  }
+}
+
+class SearchScreen extends React.Component {
+  static navigationOptions = {
+    title: 'Search',
+    tabBarIcon: () => (
+      <Image
+        source = {require('./assets/icons/small-bookmark.png')}
+        style = {styles.icon}
+      / >
+    ),
+  };
+  render() {
+    return(
+      <View>
+        <Text>Search Screen</Text>
+      </View>
+    );
+  }
+}
+
+class PlaceHolderScreen extends React.Component {
+  static navigationOptions = {
+    title: 'PlaceHolder',
+    tabBarIcon: () => (
+      <Image
+        source = {require('./assets/icons/small-bookmark.png')}
+        style = {styles.icon}
+      / >
+    ),
+  };
+  render() {
+    return(
+      <View>
+        <Text>Place Holder</Text>
       </View>
     );
   }
@@ -50,8 +88,14 @@ const ShwopApp = TabNavigator({
     Home: {
       screen: HomeScreen
     },
-    Second: {
-      screen: SecondScreen
+    Profile: {
+      screen: ProfileScreen
+    },
+    Search: {
+      screen: SearchScreen
+    },
+    PlaceHolder: {
+      screen: PlaceHolderScreen
     }
 });
 
