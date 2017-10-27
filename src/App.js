@@ -32,7 +32,7 @@ class ProfileScreen extends React.Component {
     title: 'Profile',
     tabBarIcon: () => (
       <Image
-        source = {require('./assets/icons/small-bookmark.png')}
+        source = {require('./assets/icons/profile.png')}
         style = {styles.icon}
       / >
     ),
@@ -51,7 +51,7 @@ class SearchScreen extends React.Component {
     title: 'Search',
     tabBarIcon: () => (
       <Image
-        source = {require('./assets/icons/small-bookmark.png')}
+        source = {require('./assets/icons/zoom-out-button.png')}
         style = {styles.icon}
       / >
     ),
