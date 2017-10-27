@@ -51,7 +51,7 @@ class SearchScreen extends React.Component {
     title: 'Search',
     tabBarIcon: () => (
       <Image
-        source = {require('./assets/icons/zoom-out-button.png')}
+        source = {require('./assets/icons/search.png')}
         style = {styles.icon}
       / >
     ),
