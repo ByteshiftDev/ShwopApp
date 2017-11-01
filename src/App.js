@@ -1,13 +1,10 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, Button } from 'react-native';
-import { StackNavigator } from 'react-navigation';
 import { TabNavigator } from "react-navigation";
-
-
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
-    title: 'Home page',
+    title: 'Home',
     tabBarIcon: () => (
       <Image
         source = {require('./assets/icons/home-button.png')}
@@ -20,7 +17,10 @@ class HomeScreen extends React.Component {
     return (
       <View style={styles.container}>
         <Text>Welcome to Shwop!</Text>
-        <Image source={require('./assets/shwop-portland-or.jpg')} style={{width: 333, height: 130}}/>
+        <Image
+          source={require('./assets/shwop-portland-or.jpg')}
+          style={{width: 333, height: 130}}
+        />
 
       </View>
     );
@@ -96,12 +96,22 @@ const ShwopApp = TabNavigator({
     },
     PlaceHolder: {
       screen: PlaceHolderScreen
-    }
+    },
+},
+    {
+      tabBarPosition: 'bottom',
+      animationEnabled: false,
+      swipeEnabled: true,
+      tabBarOptions: {
+        activeTintColor: '#570761',
+      },
+
 });
 
 export default class App extends React.Component {
   render() {
-    return <ShwopApp />;/*(
+    return <ShwopApp />;
+    /*(
       <View style={styles.container}>
         <Text>Welcome to Shwop!</Text>
         <Image source={require('./assets/shwop-portland-or.jpg')} style={{width: 333, height: 130}}/>
