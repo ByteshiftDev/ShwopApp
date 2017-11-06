@@ -21,14 +21,18 @@ class HomeScreen extends React.Component {
   }
 }
 
-class SecondScreen extends React.Component {
+class AccountScreen extends React.Component {
   static navigationOptions = {
-    title: 'Second Screen',
+    title: 'Account',
   };
   render() {
     return(
-      <View>
-        <Text>Yo Yo Yo</Text>
+      <View style={accountStyles.container}>
+        <Text>Hi INSERT USER NAME</Text>
+        <View style={{justifyContent: 'center', alignItems: 'center', width: 200, height: 100, backgroundColor: 'skyblue'}}>
+          <Text> Points Balance </Text>
+          <Text> 150 </Text>
+        </View>
       </View>
     );
   }
@@ -38,7 +42,7 @@ const ShwopApp = TabNavigator({
     Home: {
       screen: HomeScreen
     },
-    Second: { screen: SecondScreen}
+    Second: { screen: AccountScreen}
 });
 
 export default class App extends React.Component {
@@ -51,6 +55,14 @@ export default class App extends React.Component {
     );*/
   }
 }
+
+const accountStyles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+  },
+});
 
 const styles = StyleSheet.create({
   container: {
