@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Image, Button } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import { TabNavigator } from "react-navigation";
 
-
+import SignIn from "./SignIn.js"
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
