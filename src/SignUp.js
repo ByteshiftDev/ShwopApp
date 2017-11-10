@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import { View, Text, TouchableOpacity, TextInput, Image, StyleSheet } from 'react-native'
 
-class SignIn extends Component {
+class SignUp extends Component {
    state = {
       email: '',
-      password: ''
+      password: '',
+      name: ''
    }
+
    handleEmail = (text) => {
       this.setState({ email: text })
    }
@@ -15,6 +17,7 @@ class SignIn extends Component {
    login = (email, pass) => {
       alert('email: ' + email + ' password: ' + pass)
    }
+
    render(){
       return (
          <View style = {styles.container}>
@@ -33,23 +36,30 @@ class SignIn extends Component {
                autoCapitalize = "none"
                onChangeText = {this.handlePassword}/>
 
+            <TextInput style = {styles.input}
+               underlineColorAndroid = "transparent"
+               placeholder = "Name"
+               placeholderTextColor = "#9a73ef"
+               autoCapitalize = "none"/>
+
             <TouchableOpacity
                style = {styles.submitButton}
                onPress = {
                   () => this.login(this.state.email, this.state.password)
                }>
-               <Text style = {styles.submitButtonText}> Sign In </Text>
+               <Text style = {styles.submitButtonText}> Sign Up </Text>
             </TouchableOpacity>
          </View>
       )
    }
 }
 
-export default SignIn
+export default SignUp
 
 const styles = StyleSheet.create({
    container: {
       paddingTop: 23,
+      flex: 1,
    },
    input: {
       margin: 15,

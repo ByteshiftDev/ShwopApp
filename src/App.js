@@ -26,7 +26,7 @@ class AccountScreen extends React.Component {
     title: 'Account',
   };
   render() {
-    return(
+    return <SignIn />;/*(
       <View style={accountStyles.container}>
         <Text>Hi INSERT USER NAME</Text>
         <View style={{justifyContent: 'center', alignItems: 'center', width: 200, height: 100, backgroundColor: 'skyblue'}}>
@@ -34,7 +34,7 @@ class AccountScreen extends React.Component {
           <Text> 150 </Text>
         </View>
       </View>
-    );
+    );*/
   }
 }
 
