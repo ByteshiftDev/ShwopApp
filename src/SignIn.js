@@ -50,6 +50,7 @@ export default SignIn
 const styles = StyleSheet.create({
    container: {
       paddingTop: 23,
+      flex: 1,
    },
    input: {
       margin: 15,
