@@ -16,7 +16,7 @@ class HomeScreen extends React.Component {
     //const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
-        <Text>Welcome to Shwop!</Text>
+        <Text>Welcome to Shwop! OWIEURWLI </Text>
         <Image
           source={require('./assets/shwop-portland-or.jpg')}
           style={{width: 333, height: 130}}
