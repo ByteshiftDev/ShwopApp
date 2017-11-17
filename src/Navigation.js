@@ -42,7 +42,7 @@ const ShwopApp = TabNavigator({
     {
       tabBarPosition: 'bottom',
       animationEnabled: false,
-      swipeEnabled: true,
+      swipeEnabled: false,
       tabBarOptions: {
         activeTintColor: '#570761',
       },
