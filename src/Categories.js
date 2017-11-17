@@ -63,7 +63,7 @@ const SubTabNav = TabNavigator({
       swipeEnabled: true,
       tabBarOptions: {
         activeTintColor: '#570761',
-        labelStyle: {fontSize:17},
+        labelStyle: {fontSize:19},
       },
 });
 
