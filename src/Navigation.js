@@ -13,7 +13,7 @@ class PlaceHolderScreen extends React.Component {
       <Image
         source = {require('./assets/icons/small-bookmark.png')}
         style = {styles.icon}
-      / >
+      />
     ),
   };
   render() {

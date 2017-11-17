@@ -4,7 +4,7 @@ import { View, Text, TouchableOpacity, TextInput, Image, StyleSheet } from 'reac
 class SignIn extends Component {
    state = {
       email: '',
-      password: ''
+      password: '',
    }
    handleEmail = (text) => {
       this.setState({ email: text })
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
       borderWidth: 1
    },
    submitButton: {
-      backgroundColor: '#7a42f4',
+      backgroundColor: '#B8E986',
       padding: 10,
       margin: 15,
       height: 40,
