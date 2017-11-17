@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     color: '#4d4d4d',
     //backgroundImage:
-  }
+  },
 });
 
 export default styles;
