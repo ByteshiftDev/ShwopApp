@@ -14,9 +14,21 @@ class SignUp extends Component {
    handlePassword = (text) => {
       this.setState({ password: text })
    }
+
+   validateEmail = (email) => {
+     var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+     if (!filter.test(email.value)) {
+       return false;
+     }
+     return true;
+   }
+
    login = (name, email, pass) => {
      if(name == '', email == '', pass == ''){
        alert("Please enter info!")
+     }
+     else if (validateEmail(email) == false) {
+       alert('Please provide a valid email address');
      }
      else{
       alert('name: ' + name + 'email: ' + email + ' password: ' + pass)
