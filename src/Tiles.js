@@ -13,7 +13,6 @@ class Tile extends Component {
   }
 }
 
-
 export default class TileScreen extends Component {
   constructor(props) {
     super(props);
@@ -23,20 +22,23 @@ export default class TileScreen extends Component {
   }
 
   componentDidMount() {
-    return fetch('https://clothing-api.herokuapp.com/items')
-    .then((response) => response.json())
-    .then((responseJson) => {
-      console.log(responseJson);
-      console.log(typeof(responseJson));
-      this.setState({
-        isLoading: false,
-        dataSource: responseJson,
+    return
+
+      fetch('https://clothing-api.herokuapp.com/items')
+      .then((response) => response.json())
+      .then((responseJson) => {
+        console.log(responseJson);
+        console.log(typeof(responseJson));
+        this.setState({
+          isLoading: false,
+          dataSource: responseJson,
+        });
+        return responseJson;
+      })
+      .catch((error) => {
+        console.error(error);
       });
-      return responseJson;
-    })
-    .catch((error) => {
-      console.error(error);
-    });
+
   }
   render() {
     if (this.state.isLoading) {
