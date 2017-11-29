@@ -22,26 +22,24 @@ export default class TileScreen extends Component {
   }
 
   componentDidMount() {
-    return
-
-      fetch('https://clothing-api.herokuapp.com/items')
+    console.log("Mounting...");
+    return fetch('https://clothing-api.herokuapp.com/items')
       .then((response) => response.json())
-      .then((responseJson) => {
-        console.log(responseJson);
-        console.log(typeof(responseJson));
-        this.setState({
+      .then((responseJson) => { this.setState({
+          //Problem Here
           isLoading: false,
           dataSource: responseJson,
         });
+        console.log(this.state.isLoading)
         return responseJson;
       })
       .catch((error) => {
         console.error(error);
       });
-
   }
   render() {
     if (this.state.isLoading) {
+      console.log("TESTING LOADING");
       return (
         <View style={{flex: 1, paddingTop: 40}}>
           <ActivityIndicator />
