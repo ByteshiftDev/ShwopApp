@@ -31,6 +31,7 @@ class SignIn extends Component {
 
    render(){
       const { navigate } = this.props.navigation;
+      console.log("YOYOYOYOYOYOYOYOYO");
       return (
         <View style = {styles.container}>
           <Image source={require('./assets/shwop-portland-or.jpg')} style={{width: 333, height: 130}}/>
@@ -83,7 +84,7 @@ const styles = StyleSheet.create({
    },
    input: {
       margin: 7,
-      height: 40,
+      height: 35,
       borderColor: '#7a42f4',
       borderRadius:10,
       borderWidth: 1

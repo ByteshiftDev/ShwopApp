@@ -27,7 +27,7 @@ class SignUp extends Component {
      if(name == '', email == '', pass == ''){
        alert("Please enter info!")
      }
-     else if (validateEmail(email) == false) {
+     else if (this.validateEmail(email) == false) {
        alert('Please provide a valid email address');
      }
      else{
