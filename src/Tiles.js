@@ -124,33 +124,3 @@ const styles = StyleSheet.create({
     height: 44,
   },
 })
-
-
-array1 = [1,2,3,4]
-array2 = [3,4,5,6]
-array3 = []
-
-for {i = 0; i < array1.length; i++} (
-  for {j = 0; j < array2.length; j++} (
-    if array1[i] == array2[j] (
-      array3.push(array2[j])
-    )
-  )
-)
-
-DICTIONARY = {1:1, 2:1, }
-
-
-
-array1 = [5,1,2,3,2,4,5,1,6,3]
-array2 = []
-
-for {i=0 ; i<array1.length ; i++} (
-  for array
-)
-
-
-
-
-array.sort()
-array[array.length]*array[array.length-1]*[array.length-2]
