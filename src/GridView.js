@@ -1,6 +1,6 @@
 import styles from './Style.js';
 import React from 'react';
-import { StyleSheet, Text, View, Image, Button } from 'react-native';
+import { StyleSheet, Text, View, Image, Button, FlatList } from 'react-native';
 
 class GridView extends React.Component {
   render() {
@@ -26,9 +26,11 @@ class GridView extends React.Component {
         {image: require("./assets/item.png"), title: 'clothes15', key: 'item15'},
         {image: require("./assets/item.png"), title: 'clothes16', key: 'item16'},
         ]}
-        renderItem={({item}) => <View style={styles.item}><Image source={item.image} style={{}} /><Text style={{textAlign: 'left'}}>{item.title}</Text></View>}
+        renderItem={({item}) => <View style={styles.gridItem}><Image source={item.gridImage} style={{}} /><Text style={{textAlign: 'left'}}>{item.title}</Text></View>}
       />
       </View>
     );
   }
 }
+
+export default GridView;

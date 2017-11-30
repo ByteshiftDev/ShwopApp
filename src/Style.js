@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: 23,
   },
-  icon:{
+  icon:{ //icon for navigator
     width: 24,
     height: 24
   },
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flex: 1,
     //borderWidth:1,
-    backgroundColor:'#8e769d',
+    //backgroundColor:'#8e769d',
   }
 
 });

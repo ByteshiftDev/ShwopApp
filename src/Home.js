@@ -1,5 +1,6 @@
 import styles from './Style.js';
 import React from 'react';
+import GridView from './GridView.js'
 import { StyleSheet, Text, View, Image, Button } from 'react-native';
 
 class HomeScreen extends React.Component {
@@ -14,8 +15,14 @@ class HomeScreen extends React.Component {
   };
   render() {
     //const { navigate } = this.props.navigation;
-    return (
-      
+    return <GridView />;
+  }
+}
+
+export default HomeScreen;
+
+
+/*
       <View style={styles.container}>
         <Text>Welcome to Shwop! OWIEURWLI </Text>
         <Image
@@ -23,9 +30,4 @@ class HomeScreen extends React.Component {
           style={{width: 333, height: 130}}
         />
       </View>
-
-    );
-  }
-}
-
-export default HomeScreen;
+*/
