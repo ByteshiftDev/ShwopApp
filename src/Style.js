@@ -1,4 +1,7 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
+
+const {width, height} = Dimensions.get('window');
+const halfWidth = (width/2);
 
 const styles = StyleSheet.create({
   container: {
@@ -23,6 +26,24 @@ const styles = StyleSheet.create({
     color: '#4d4d4d',
     //backgroundImage:
   },
+  gridItem:{
+    backgroundColor: '#CCC',
+    alignItems: 'center',
+    //justifyContent: 'center',
+    //alignSelf: 'center',
+    //margin: 1,
+    width: halfWidth,
+    height: 200,
+  },
+  gridContainter:{
+    paddingTop: 25,
+    justifyContent: 'center',
+    alignItems: 'center',
+    flex: 1,
+    //borderWidth:1,
+    backgroundColor:'#8e769d',
+  }
+
 });
 
 export default styles;
