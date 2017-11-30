@@ -8,12 +8,10 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: 23,
   },
-
   icon:{
     width: 24,
     height: 24
   },
-
   searchBar:{
     margin: 20,
     height: 40,
