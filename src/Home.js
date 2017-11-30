@@ -15,6 +15,7 @@ class HomeScreen extends React.Component {
   render() {
     //const { navigate } = this.props.navigation;
     return (
+      
       <View style={styles.container}>
         <Text>Welcome to Shwop! OWIEURWLI </Text>
         <Image
@@ -22,6 +23,7 @@ class HomeScreen extends React.Component {
           style={{width: 333, height: 130}}
         />
       </View>
+
     );
   }
 }
