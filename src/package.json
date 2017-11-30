@@ -1,13 +1,14 @@
 {
   "name": "src",
-  "version": "0.0.0",
-  "description": "Hello Expo!",
+  "version": "0.1.1",
+  "description": "Shwop App",
   "author": null,
   "private": true,
   "main": "node_modules/expo/AppEntry.js",
   "dependencies": {
     "expo": "^21.0.0",
     "react": "16.0.0-alpha.12",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-21.0.2.tar.gz"
+    "react-native": "https://github.com/expo/react-native/archive/sdk-21.0.2.tar.gz",
+    "react-navigation": "^1.0.0-beta.13"
   }
 }

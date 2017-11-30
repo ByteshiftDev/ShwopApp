@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, TouchableOpacity, TextInput, Image, StyleSheet } from 'react-native'
+import { View, Text, Keyboard, TouchableOpacity, TextInput, Image, StyleSheet, TouchableWithoutFeedback } from 'react-native'
 
 class SignUp extends Component {
    state = {
@@ -37,6 +37,7 @@ class SignUp extends Component {
 
    render(){
       return (
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
          <View style = {styles.container}>
           <Image source={require('./assets/shwop-portland-or.jpg')} style={{width: 333, height: 130}}/>
           <TextInput style = {styles.input}
@@ -50,6 +51,7 @@ class SignUp extends Component {
                placeholder = "Email"
                placeholderTextColor = "#9a73ef"
                autoCapitalize = "none"
+               keyboardType='email-address'
                onChangeText = {this.handleEmail}/>
 
             <TextInput secureTextEntry={true} style = {styles.input}
@@ -67,6 +69,7 @@ class SignUp extends Component {
                <Text style = {styles.submitButtonText}> Sign Up </Text>
             </TouchableOpacity>
          </View>
+         </TouchableWithoutFeedback>
       )
    }
 }
