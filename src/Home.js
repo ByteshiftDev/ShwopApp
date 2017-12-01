@@ -1,6 +1,5 @@
 import styles from './Style.js';
 import React from 'react';
-//import GridView from './GridView.js';
 import { StackNavigator } from 'react-navigation';
 import { StyleSheet, Text, View, Image, TouchableOpacity, FlatList, Alert } from 'react-native';
 

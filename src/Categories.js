@@ -1,6 +1,5 @@
 import styles from './Style.js';
 import React from 'react';
-import GridView from './GridView.js';
 import { StyleSheet, Text, View, Image, Button } from 'react-native';
 import { TabNavigator } from "react-navigation";
 
