@@ -13,6 +13,13 @@ class HomeScreen extends React.Component {
       / >
     ),
   };
+
+  render() {
+    return <ItemDisplayView />;
+  }
+}
+
+class HomeView extends React.Component {
   render() {
     const {navigate} = this.props.navigation;
     return (
@@ -39,7 +46,7 @@ class HomeScreen extends React.Component {
         {image: require("./assets/item.png"), title: 'clothes16', key: 'item16'},
         ]}
         renderItem={({item}) =>
-        <TouchableOpacity onPress={() => navigate('DisplayItem', {title: "Testing"})}>
+        <TouchableOpacity onPress={() => navigate('DisplayItem', {title: "Testing", key:item.key})}>
           <View style={styles.gridItem}>
             <View style={{alignItems:'center'}}>
               <Image source={item.image} />
@@ -55,20 +62,25 @@ class HomeScreen extends React.Component {
 }
 
 class DisplayItemScreen extends React.Component{
-  static navigationOptions={
-    title: 'this.props.title'
-  }
   render(){
     return(
-      <Text>"Hello"</Text>
+      <Text>`${navigation.state.params.key}`</Text>
     );
   }
 }
 
 const ItemDisplayView = StackNavigator({
-  Home: {screen: HomeScreen},
-  DisplayItem:{screen: DisplayItemScreen}
-});
+  HomeView: {screen: HomeView,
+    navigationOptions: ({navigation}) => ({header: false}),
+  },
+  DisplayItem:{screen: DisplayItemScreen,
+    navigationOptions: ({navigation}) => ({
+    title: `${navigation.state.params.title}`}),}
+},
+  //{
+  //  headerMode: 'none',
+  //}
+);
 
 
 export default HomeScreen;
