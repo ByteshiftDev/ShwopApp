@@ -3,8 +3,9 @@ import styles from './Style.js';
 import SearchScreen from './Search.js';
 import ProfileScreen from './Profile.js';
 import HomeScreen from './Home.js';
-import Categories from './Categories.js'
+import Categories from './Categories.js';
 import React from 'react';
+import TileScreen from './Tiles.js';
 import { StyleSheet, Text, View, Image, Button } from 'react-native';
 
 /*
@@ -37,6 +38,9 @@ const ShwopApp = TabNavigator({
     },
     Search: {
       screen: SearchScreen
+    },
+    Featured: {
+      screen: TileScreen
     },
     Categories: {
       screen: Categories
