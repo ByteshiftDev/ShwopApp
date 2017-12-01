@@ -3,9 +3,11 @@ import styles from './Style.js';
 import SearchScreen from './Search.js';
 import ProfileScreen from './Profile.js';
 import HomeScreen from './Home.js';
+import Categories from './Categories.js'
 import React from 'react';
 import { StyleSheet, Text, View, Image, Button } from 'react-native';
 
+/*
 class PlaceHolderScreen extends React.Component {
   static navigationOptions = {
     title: 'PlaceHolder',
@@ -24,6 +26,7 @@ class PlaceHolderScreen extends React.Component {
     );
   }
 }
+*/
 
 const ShwopApp = TabNavigator({
     Home: {
@@ -35,14 +38,14 @@ const ShwopApp = TabNavigator({
     Search: {
       screen: SearchScreen
     },
-    PlaceHolder: {
-      screen: PlaceHolderScreen
+    Categories: {
+      screen: Categories
     },
 },
     {
       tabBarPosition: 'bottom',
       animationEnabled: false,
-      swipeEnabled: true,
+      swipeEnabled: false,
       tabBarOptions: {
         activeTintColor: '#570761',
       },
