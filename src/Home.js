@@ -14,14 +14,13 @@ class HomeScreen extends React.Component {
     ),
   };
   render() {
-    //const { navigate } = this.props.navigation;
-    return <GridView />;
+    return (<View style={styles.container}><GridView /></View>);
   }
 }
 
 export default HomeScreen;
 
-
+    //const { navigate } = this.props.navigation;
 /*
       <View style={styles.container}>
         <Text>Welcome to Shwop! OWIEURWLI </Text>

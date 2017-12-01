@@ -5,7 +5,7 @@ import { StyleSheet, Text, View, Image, Button, FlatList } from 'react-native';
 class GridView extends React.Component {
   render() {
     return(//add stuff here
-      <View style={styles.gridContainter}>
+      //<View>
       <FlatList
         numColumns={2}
         data={[
@@ -34,7 +34,7 @@ class GridView extends React.Component {
           <Text>{item.title}</Text>
         </View>}
       />
-      </View>
+      //</View>
     );
   }
 }

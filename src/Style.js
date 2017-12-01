@@ -25,22 +25,12 @@ const styles = StyleSheet.create({
     //backgroundImage:
   },
   gridItem:{
-    backgroundColor: '#CCC',
-    //alignItems: 'center',
-    //justifyContent: 'center',
-    //alignSelf: 'center',
+    //backgroundColor: '#CCC',
     margin: 1,
-    width: (halfWidth-8),
+    width: halfWidth,
     height: 200,
+    //paddingLeft: 10
   },
-  gridContainter:{
-    paddingTop: 25,
-    //justifyContent: 'center',
-    //alignItems: 'center',
-    flex: 1,
-    //borderWidth:1,
-    //backgroundColor:'#8e769d',
-  }
 
 });
 
