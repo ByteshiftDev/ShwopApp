@@ -26,7 +26,13 @@ class GridView extends React.Component {
         {image: require("./assets/item.png"), title: 'clothes15', key: 'item15'},
         {image: require("./assets/item.png"), title: 'clothes16', key: 'item16'},
         ]}
-        renderItem={({item}) => <View style={styles.gridItem}><Image source={item.gridImage} style={{}} /><Text style={{textAlign: 'left'}}>{item.title}</Text></View>}
+        renderItem={({item}) =>
+        <View style={styles.gridItem}>
+          <View style={{alignItems:'center'}}>
+            <Image source={item.image} />
+          </View>
+          <Text>{item.title}</Text>
+        </View>}
       />
       </View>
     );
