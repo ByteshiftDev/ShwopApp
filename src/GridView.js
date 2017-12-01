@@ -1,11 +1,15 @@
 import styles from './Style.js';
 import React from 'react';
-import { StyleSheet, Text, View, Image, Button, FlatList } from 'react-native';
+import { StackNavigator } from "react-navigation";
+import { StyleSheet, Text, View, Image, TouchableOpacity, FlatList, Alert } from 'react-native';
 
 class GridView extends React.Component {
+  _onPressButton(){
+    Alert.alert("You pressed a button on ");
+  }
   render() {
-    return(//add stuff here
-      //<View>
+    const {navigate} = this.props.navigation;
+    return(
       <FlatList
         numColumns={2}
         data={[
@@ -27,16 +31,34 @@ class GridView extends React.Component {
         {image: require("./assets/item.png"), title: 'clothes16', key: 'item16'},
         ]}
         renderItem={({item}) =>
-        <View style={styles.gridItem}>
-          <View style={{alignItems:'center'}}>
-            <Image source={item.image} />
+        <TouchableOpacity onPress={() => navigate('DisplayItem', {title: "Testing"})}>
+          <View style={styles.gridItem}>
+            <View style={{alignItems:'center'}}>
+              <Image source={item.image} />
+            </View>
+            <Text>{item.title}</Text>
           </View>
-          <Text>{item.title}</Text>
-        </View>}
+        </TouchableOpacity>
+        }
       />
-      //</View>
     );
   }
 }
+
+class DisplayItemScreen extends React.Component{
+  static navigationOptions={
+    title: 'this.props.title'
+  }
+  render(){
+    return(
+      <Text>"Hello"</Text>
+    );
+  }
+}
+
+const ItemDisplayView = StackNavigator({
+  GridView: {screen: GridView},
+  DisplayItem:{screen: DisplayItemScreen}
+});
 
 export default GridView;

@@ -1,6 +1,7 @@
 import styles from './Style.js';
 import React from 'react';
 import GridView from './GridView.js'
+import { StackNavigator } from "react-navigation";
 import { StyleSheet, Text, View, Image, Button } from 'react-native';
 
 class HomeScreen extends React.Component {
@@ -14,9 +15,28 @@ class HomeScreen extends React.Component {
     ),
   };
   render() {
-    return (<View style={styles.container}><GridView /></View>);
+    return (
+      <View style={styles.container}>
+        <GridView />
+      </View>
+    );
   }
 }
+
+class DisplayItemScreen extends React.Component{
+  static navigationOptions={
+    title: 'this.props.title'
+  }
+  render(){
+    return(
+      <Text>"Hello"</Text>
+    );
+  }
+}
+
+const ItemDisplayView = StackNavigator({
+  DisplayItem:{screen: DisplayItemScreen}
+});
 
 export default HomeScreen;
 
