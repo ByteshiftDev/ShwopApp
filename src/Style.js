@@ -24,6 +24,7 @@ const styles = StyleSheet.create({
     color: '#4d4d4d',
     //backgroundImage:
   },
+
   gridItem:{
     //backgroundColor: '#CCC',
     margin: 1,
