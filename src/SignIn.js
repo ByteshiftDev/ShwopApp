@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { View, Text, TouchableOpacity, Button, TextInput, Image, StyleSheet, TouchableWithoutFeedback, Keyboard } from 'react-native'
 import SignUp from './SignUp.js';
 import { StackNavigator, } from 'react-navigation';
+import WebCalls from './WebCalls.js';
 
 
 class SignIn extends Component {
