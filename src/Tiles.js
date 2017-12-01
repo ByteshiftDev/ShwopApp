@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { ActivityIndicator, FlatList, Image, ListView, StyleSheet, ScrollView, Text, View } from 'react-native';
+<<<<<<< HEAD
 import { TabNavigator } from "react-navigation";
+=======
+import AppNavigation from './Navigation.js';
+>>>>>>> aa710106b7b28b7f9009a28fa424cfdeab60a03a
 
 class Tile extends Component {
   render() {
@@ -23,12 +27,21 @@ export default class TileScreen extends Component {
 
   componentDidMount() {
     console.log("Mounting...");
+<<<<<<< HEAD
     if (this.state.isLoading) {
     return fetch('https://clothing-api.herokuapp.com/items')
       .then((response) => response.json())
       .then((responseJson) => { this.setState({
           isLoading: false,
           dataSource: responseJson
+=======
+    return fetch('https://clothing-api.herokuapp.com/items')
+      .then((response) => response.json())
+      .then((responseJson) => { this.setState({
+          //Problem Here
+          isLoading: false,
+          dataSource: responseJson,
+>>>>>>> aa710106b7b28b7f9009a28fa424cfdeab60a03a
         });
         console.log(this.state.isLoading)
         return responseJson;
@@ -36,7 +49,10 @@ export default class TileScreen extends Component {
       .catch((error) => {
         console.error(error);
       });
+<<<<<<< HEAD
     };
+=======
+>>>>>>> aa710106b7b28b7f9009a28fa424cfdeab60a03a
   }
   render() {
     if (this.state.isLoading) {
@@ -60,6 +76,10 @@ export default class TileScreen extends Component {
 
         }
       />
+<<<<<<< HEAD
+=======
+      <AppNavigation />
+>>>>>>> aa710106b7b28b7f9009a28fa424cfdeab60a03a
       {/*
         <Text>This is a test: {this.state.dataSource[0].name}, {this.state.dataSource[0].url}
         {itemsArray[0].name}
