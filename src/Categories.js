@@ -4,6 +4,11 @@ import { StyleSheet, Text, View, Image, Button } from 'react-native';
 import { TabNavigator } from "react-navigation";
 
 class Women extends React.Component{
+  /*
+  render() {
+    return <GridView />;
+  }*/
+
   render(){
     return(
       <View>
@@ -11,9 +16,15 @@ class Women extends React.Component{
       </View>
     );
   }
+
 }
 
 class Men extends React.Component{
+  /*
+  render() {
+    return <GridView />;
+  }*/
+
   render(){
     return(
       <View>
@@ -21,9 +32,15 @@ class Men extends React.Component{
       </View>
     );
   }
+
 }
 
 class Girls extends React.Component{
+  /*
+  render() {
+    return <GridView />;
+  }*/
+
   render(){
     return(
       <View>
@@ -31,9 +48,15 @@ class Girls extends React.Component{
       </View>
     );
   }
+
 }
 
 class Boys extends React.Component{
+  /*
+  render() {
+    return <GridView />;
+  }*/
+
   render(){
     return(
       <View>

@@ -1,16 +1,17 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
+
+const {width, height} = Dimensions.get('window');
+const halfWidth = (width/2);
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: 23,
   },
-
-  icon:{
+  icon:{ //icon for navigator
     width: 24,
     height: 24
   },
-
   searchBar:{
     margin: 20,
     height: 40,
@@ -23,6 +24,15 @@ const styles = StyleSheet.create({
     color: '#4d4d4d',
     //backgroundImage:
   },
+
+  gridItem:{
+    //backgroundColor: '#CCC',
+    margin: 1,
+    width: halfWidth,
+    height: 200,
+    //paddingLeft: 10
+  },
+
 });
 
 export default styles;
