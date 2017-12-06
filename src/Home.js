@@ -18,18 +18,6 @@ class HomeScreen extends React.Component {
     return <ItemDisplayView />;
   }
 }
-/*
-class Tile extends Component {
-  render() {
-    return (
-      <View>
-        <Image source={{ uri: this.props.pic }} style={{width: 150, height: 150}}/>
-        <Text>{this.props.name}</Text>
-      </View>
-    );
-  }
-}
-*/
 
 class HomeView extends React.Component {
   constructor(props) {
