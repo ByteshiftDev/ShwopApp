@@ -25,19 +25,19 @@ export default class TileScreen extends Component {
     console.log("Mounting...");
     return fetch('https://clothing-api.herokuapp.com/items')
       .then((response) => response.json())
-      .then((responseJson) => { this.setState({
-          //Problem Here
+      .then((responseJson) => {
+        this.setState({
           isLoading: false,
           dataSource: responseJson,
         });
-        console.log(this.state.isLoading)
+        console.log("Successfully loaded JSON")
         return responseJson;
       })
       .catch((error) => {
         console.error(error);
       });
-    }
-    
+  }
+
   render() {
     if (this.state.isLoading) {
       console.log("TESTING LOADING");

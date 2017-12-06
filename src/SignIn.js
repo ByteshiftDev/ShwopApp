@@ -31,7 +31,7 @@ class SignIn extends Component {
 
    render(){
       const { navigate } = this.props.navigation;
-      console.log("YOYOYOYOYOYOYOYOYO");
+      console.log("Sign-in page loaded.");
       return (
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style = {styles.container}>
