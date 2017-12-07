@@ -36,6 +36,11 @@ const styles = StyleSheet.create({
   imageTileText: {
     margin: 15,
     marginTop: 5,
+    textAlign: 'center',
+    color: 'steelblue',
+    fontWeight: 'bold',
+    fontStyle: 'italic',
+    fontSize: 16,
   },
 
   imageLarge: {
