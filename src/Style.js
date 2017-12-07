@@ -27,13 +27,6 @@ const styles = StyleSheet.create({
   },
 
   imageTile: {
-    //borderWidth: 2,
-    //borderColor: '#000000',
-    backgroundColor: 'white',
-    borderRadius: 20,
-    shadowOffset:{  width: 10,  height: 10,  },
-    shadowColor: '#000000',
-    shadowOpacity: 1.0,
     width: 150,
     height: 150,
     margin: 8,
