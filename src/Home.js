@@ -57,9 +57,9 @@ class HomeView extends React.Component {
         <TouchableOpacity onPress={() => navigate('DisplayItem', {name: item.name, key:item.id, })}>
           <View style={styles.gridItem}>
             <View style={{alignItems:'center'}}>
-              <Image source={{ uri: item.url }} style={{ width: 150, height: 150 }} />
+              <Image source={{ uri: item.url }} style={styles.imageTile} />
             </View>
-            <Text>{item.name}</Text>
+            <Text style={styles.imageTileText}>{item.name}</Text>
           </View>
         </TouchableOpacity>
         }
@@ -76,7 +76,7 @@ class DisplayItemScreen extends React.Component{
     return(
       /*<Text>`${navigation.state.params.name}`</Text>*/
       <View>
-        <Text>{params.name} " is item number: " {params.key}</Text>
+        <Text>{params.name} is item number: {params.key}</Text>
       </View>
     );
   }
@@ -95,7 +95,6 @@ const ItemDisplayView = StackNavigator({
   //  headerMode: 'none',
   //}
 );
-
 
 export default HomeScreen;
 
