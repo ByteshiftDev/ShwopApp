@@ -38,6 +38,13 @@ const styles = StyleSheet.create({
     marginTop: 5,
   },
 
+  imageLarge: {
+    width: .9*width,
+    height: .9*width,
+    margin: 20,
+    borderRadius: 20,
+  },
+
   gridItem:{
     //backgroundColor: '#CCC',
     borderWidth: 0,

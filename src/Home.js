@@ -54,7 +54,7 @@ class HomeView extends React.Component {
         numColumns={2}
         data={this.state.dataSource}
         renderItem={({item}) =>
-        <TouchableOpacity onPress={() => navigate('DisplayItem', {name: item.name, key:item.id, })}>
+        <TouchableOpacity onPress={() => navigate('DisplayItem', {name: item.name, key: item.id, url: item.url})}>
           <View style={styles.gridItem}>
             <View style={{alignItems:'center'}}>
               <Image source={{ uri: item.url }} style={styles.imageTile} />
@@ -76,7 +76,8 @@ class DisplayItemScreen extends React.Component{
     return(
       /*<Text>`${navigation.state.params.name}`</Text>*/
       <View>
-        <Text>{params.name} is item number: {params.key}</Text>
+        <Text>{params.name} is item number: {params.key} that has url: {params.url}</Text>
+        <Image source={{ uri:params.url }} style={styles.imageLarge} />
       </View>
     );
   }
