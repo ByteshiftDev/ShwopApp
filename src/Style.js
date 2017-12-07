@@ -8,7 +8,6 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: 23,
     backgroundColor: "white",
-    flex: 1,
   },
   icon:{ //icon for navigator
     width: 24,
@@ -30,6 +29,7 @@ const styles = StyleSheet.create({
   imageTile: {
     //borderWidth: 2,
     //borderColor: '#000000',
+    backgroundColor: 'white',
     borderRadius: 20,
     shadowOffset:{  width: 10,  height: 10,  },
     shadowColor: '#000000',
@@ -47,14 +47,14 @@ const styles = StyleSheet.create({
 
   gridItem:{
     //backgroundColor: '#CCC',
-    borderWidth: 1,
+    borderWidth: 0,
     borderColor: '#000000',
     borderRadius: 20,
     shadowOffset:{  width: 10,  height: 10,  },
     shadowColor: '#000000',
-    shadowOpacity: 0.5,
+    shadowOpacity: 0.10,
     margin: 5,
-    width: halfWidth,
+    width: 180,
     height: 200,
     //paddingLeft: 10
   },
