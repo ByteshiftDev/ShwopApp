@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
   },
   banner:{
     width: width,
-    height: 250,
+    height: 100,
   }
 });
 
