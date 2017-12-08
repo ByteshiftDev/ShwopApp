@@ -63,7 +63,10 @@ const styles = StyleSheet.create({
     height: 200,
     //paddingLeft: 10
   },
-
+  banner:{
+    width: width,
+    height: 250,
+  }
 });
 
 export default styles;
