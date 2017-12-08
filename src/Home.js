@@ -50,6 +50,7 @@ class HomeView extends React.Component {
     return (
       //const Grid = ({ItemDisplayView}) => (<GridView navigation={ItemDisplayView} />);
       <View style={styles.container}>
+      <View><Image source={require('./assets/cover.jpg')} style={styles.banner}  /></View>
       <FlatList
         numColumns={2}
         data={this.state.dataSource}
