@@ -38,29 +38,30 @@ class SignIn extends Component {
         <View style = {styles.container}>
           <Image source={require('./assets/shwop-portland-or.jpg')} style={{width: 333, height: 130}}/>
           <TextInput style = {styles.input}
-               underlineColorAndroid = "transparent"
-               placeholder = " Email"
-               placeholderTextColor = "#9a73ef"
-               autoCapitalize = "none"
-               keyboardType='email-address'
-               onChangeText = {this.handleEmail}/>
+             underlineColorAndroid = "transparent"
+             placeholder = " Email"
+             placeholderTextColor = "#9a73ef"
+             autoCapitalize = "none"
+             keyboardType='email-address'
+             onChangeText = {this.handleEmail}/>
 
-            <TextInput secureTextEntry={true} style = {styles.input}
-               underlineColorAndroid = "transparent"
-               placeholder = " Password"
-               placeholderTextColor = "#9a73ef"
-               autoCapitalize = "none"
-               onChangeText = {this.handlePassword}/>
+          <TextInput secureTextEntry={true} style = {styles.input}
+             underlineColorAndroid = "transparent"
+             placeholder = " Password"
+             placeholderTextColor = "#9a73ef"
+             autoCapitalize = "none"
+             onChangeText = {this.handlePassword}/>
 
-            <TouchableOpacity
-               style = {styles.submitButton}
-               onPress = {
-                  () => this.login(this.state.email, this.state.password)
-               }>
-               <Text style = {styles.submitButtonText}> Sign In </Text>
-            </TouchableOpacity>
+          <TouchableOpacity
+             style = {styles.submitButton}
+             onPress = {
+                () => this.login(this.state.email, this.state.password)
+             }>
+             //Why is the function above being called via fat arrow notation instead of directly?
+             <Text style = {styles.submitButtonText}> Sign In </Text>
+          </TouchableOpacity>
 
-            <Text> New to Shwop? Sign up for one </Text>
+            <Text> New to Shwop? Sign up for an account </Text>
 
             <TouchableOpacity
               style = {styles.signUpButton}
@@ -80,6 +81,8 @@ const SignInSignUp = StackNavigator({
 
 export default SignInSignUp
 
+
+//Unless there are objections, I will begin relocating this to the main stlye sheet.
 const styles = StyleSheet.create({
    container: {
      backgroundColor: 'white',
