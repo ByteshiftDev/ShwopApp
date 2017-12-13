@@ -5,6 +5,7 @@ import ProfileScreen from './Profile.js';
 import HomeScreen from './Home.js';
 import Categories from './Categories.js';
 import TileScreen from './Tiles.js';
+import SignIn from './SignIn.js';
 import React from 'react';
 import { StyleSheet, Text, View, Image, Button } from 'react-native';
 
@@ -32,6 +33,9 @@ class PlaceHolderScreen extends React.Component {
 const ShwopApp = TabNavigator({
     Home: {
       screen: HomeScreen
+    },
+    SignIn: {
+      screen: SignIn
     },
     Profile: {
       screen: ProfileScreen
