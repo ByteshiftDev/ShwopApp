@@ -20,6 +20,7 @@ class HomeScreen extends React.Component {
 }
 
 class HomeView extends React.Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -44,6 +45,7 @@ class HomeView extends React.Component {
   }
 
   render() {
+    console.log("HOME PAGE")
     const {navigate} = this.props.navigation;
     console.log("Attempting to load files from datasource...");
     console.log(this.state.dataSource);

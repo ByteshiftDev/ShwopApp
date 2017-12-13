@@ -1,14 +1,13 @@
 import React, { Component } from 'react'
-import { View, Text, TouchableOpacity, Button, TextInput, Image, StyleSheet, TouchableWithoutFeedback, Keyboard } from 'react-native'
-import SignUp from './SignUp.js';
-import { TabNavigator } from "react-navigation";
-import { StackNavigator, } from 'react-navigation';
+import { View, Text, TouchableOpacity, Button, TextInput, Image, StyleSheet, TouchableWithoutFeedback, Keyboard, AsyncStorage } from 'react-native'
+import { StackNavigator, reset} from 'react-navigation';
 
 
 class SignIn extends Component {
    state = {
       email: '',
       password: '',
+      loggedIn: false
    }
    handleEmail = (text) => {
       this.setState({ email: text })
@@ -25,14 +24,27 @@ class SignIn extends Component {
        alert('Please Enter Your Password!')
      }
      else{
-      alert('email: ' + email + ' password: ' + pass)
+       //alert('email: ' + email + ' password: ' + pass)
+       AsyncStorage.setItem('email', email)
+       AsyncStorage.setItem('password', pass)
+
+       console.log("GOING HOME");
+       this.setState({
+         loggedIn: true
+       })
+
+       this.render()
      }
    }
 
 
    render(){
-      const { navigate } = this.props.navigation;
-      console.log("Sign-in page loaded.");
+      //const { navigate } = this.props.navigation;
+      console.log("Sign In page");
+      /*
+      if(this.state.loggedIn === true){
+        return <ProfileScreen />
+      }*/
       return (
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style = {styles.container}>
@@ -52,20 +64,21 @@ class SignIn extends Component {
              autoCapitalize = "none"
              onChangeText = {this.handlePassword}/>
 
-          <TouchableOpacity
-             style = {styles.submitButton}
-             onPress = {
-                () => this.login(this.state.email, this.state.password)
-             }>
-             //Why is the function above being called via fat arrow notation instead of directly?
-             <Text style = {styles.submitButtonText}> Sign In </Text>
-          </TouchableOpacity>
-
-            <Text> New to Shwop? Sign up for an account </Text>
 
             <TouchableOpacity
+               style = {styles.submitButton}
+               onPress = {
+                  () => {this.login(this.state.email, this.state.password);
+                        Keyboard.dismiss;
+                        this.props.navigation.goBack()}
+               }>
+               <Text style = {styles.submitButtonText}> Sign In </Text>
+            </TouchableOpacity>
+
+            <Text> New to Shwop? Sign up for one </Text>
+            <TouchableOpacity
               style = {styles.signUpButton}
-              onPress={() => navigate('SignUp')}>
+              onPress={() => this.props.navigation.navigate('SignUp')}>
               <Text style = {styles.signButtonButtonText}> Sign Up! </Text>
             </TouchableOpacity>
          </View>
@@ -73,13 +86,14 @@ class SignIn extends Component {
       )
    }
 }
-
-const SignInSignUp = StackNavigator({
-  SignIn: { screen: SignIn },
-  SignUp: { screen: SignUp },
-});
-
-export default SignInSignUp
+/*
+<TouchableOpacity
+  style = {styles.signUpButton}
+  onPress={() => navigate('SignUp')}>
+  <Text style = {styles.signButtonButtonText}> Sign Up! </Text>
+</TouchableOpacity>
+*/
+export default SignIn
 
 
 //Unless there are objections, I will begin relocating this to the main stlye sheet.
