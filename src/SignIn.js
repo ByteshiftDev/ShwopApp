@@ -69,7 +69,8 @@ class SignIn extends Component {
                style = {styles.submitButton}
                onPress = {
                   () => {this.login(this.state.email, this.state.password);
-                        this.props.navigation.navigate("Profile")}
+                        Keyboard.dismiss;
+                        this.props.navigation.goBack()}
                }>
                <Text style = {styles.submitButtonText}> Sign In </Text>
             </TouchableOpacity>

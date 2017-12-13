@@ -9,13 +9,18 @@ import SignUp from './SignUp.js'
 import React from 'react';
 import { StyleSheet, Text, View, Image, Button } from 'react-native';
 
+export const SignInSignUp = StackNavigator({
+  Profile: { screen: ProfileScreen },
+  SignIn: { screen: SignIn },
+  SignUp: { screen: SignUp }
+});
 
 export const ShwopApp = TabNavigator({
     Home: {
       screen: HomeScreen
     },
-    Profile: {
-      screen: ProfileScreen
+    ProfilePage: {
+      screen: SignInSignUp
     },
     Search: {
       screen: SearchScreen
@@ -31,16 +36,6 @@ export const ShwopApp = TabNavigator({
       tabBarOptions: {
         activeTintColor: '#570761',
       },
-
-});
-
-export const signInSignUp = StackNavigator({
-  Profile: { screen: ProfileScreen },
-  SignIn: { screen: SignIn },
-  SignUp: { screen: SignUp },
-  {
-    initialRouteName:SignIn
-  }
 
 });
 

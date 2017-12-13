@@ -2,7 +2,7 @@ import styles from './Style.js';
 import React from 'react';
 import SignIn from './SignIn.js';
 import { StyleSheet, Text, View, TouchableOpacity, Image, AsyncStorage, Navigator} from 'react-native';
-import {signInSignUp} from './Navigation.js';
+import {SignInSignUp} from './Navigation.js';
 
 class ProfileScreen extends React.Component {
   static navigationOptions = {
@@ -52,7 +52,20 @@ class ProfileScreen extends React.Component {
   render() {
     console.log("Profile page")
     if(this.state.email === ''){
-      return <signInSignUp />
+      return (
+        <View style={styles.container}>
+          <Text>Profile Screen</Text>
+          <Text>Please sign in!</Text>
+          <TouchableOpacity
+             onPress = {
+                () => {
+                this.props.navigation.navigate("SignIn")
+              }
+             }>
+             <Text> Sign In </Text>
+          </TouchableOpacity>
+        </View>
+      )
     }
     else{
       return(
