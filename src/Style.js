@@ -7,6 +7,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: 23,
+    backgroundColor: "white",
   },
   icon:{ //icon for navigator
     width: 24,
@@ -25,14 +26,47 @@ const styles = StyleSheet.create({
     //backgroundImage:
   },
 
+  imageTile: {
+    width: 150,
+    height: 150,
+    margin: 8,
+    marginBottom: 0,
+  },
+
+  imageTileText: {
+    margin: 15,
+    marginTop: 5,
+    textAlign: 'center',
+    color: 'steelblue',
+    fontWeight: 'bold',
+    fontStyle: 'italic',
+    fontSize: 16,
+  },
+
+  imageLarge: {
+    width: .9*width,
+    height: .9*width,
+    margin: 20,
+    borderRadius: 20,
+  },
+
   gridItem:{
     //backgroundColor: '#CCC',
-    margin: 1,
-    width: halfWidth,
+    borderWidth: 0,
+    borderColor: '#000000',
+    borderRadius: 20,
+    shadowOffset:{  width: 10,  height: 10,  },
+    shadowColor: '#000000',
+    shadowOpacity: 0.10,
+    margin: 5,
+    width: 180,
     height: 200,
     //paddingLeft: 10
   },
-
+  banner:{
+    width: width,
+    height: 100,
+  }
 });
 
 export default styles;

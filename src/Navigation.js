@@ -6,6 +6,7 @@ import HomeScreen from './Home.js';
 import Categories from './Categories.js'
 import SignIn from './SignIn.js'
 import SignUp from './SignUp.js'
+import TileScreen from './Tiles.js';
 import React from 'react';
 import { StyleSheet, Text, View, Image, Button } from 'react-native';
 
@@ -24,6 +25,9 @@ export const ShwopApp = TabNavigator({
     },
     Search: {
       screen: SearchScreen
+    },
+    Featured: {
+      screen: TileScreen
     },
     Categories: {
       screen: Categories

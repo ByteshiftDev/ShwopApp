@@ -45,25 +45,25 @@ class SignIn extends Component {
       if(this.state.loggedIn === true){
         return <ProfileScreen />
       }*/
-
       return (
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style = {styles.container}>
           <Image source={require('./assets/shwop-portland-or.jpg')} style={{width: 333, height: 130}}/>
           <TextInput style = {styles.input}
-               underlineColorAndroid = "transparent"
-               placeholder = " Email"
-               placeholderTextColor = "#9a73ef"
-               autoCapitalize = "none"
-               keyboardType='email-address'
-               onChangeText = {this.handleEmail}/>
+             underlineColorAndroid = "transparent"
+             placeholder = " Email"
+             placeholderTextColor = "#9a73ef"
+             autoCapitalize = "none"
+             keyboardType='email-address'
+             onChangeText = {this.handleEmail}/>
 
-            <TextInput secureTextEntry={true} style = {styles.input}
-               underlineColorAndroid = "transparent"
-               placeholder = " Password"
-               placeholderTextColor = "#9a73ef"
-               autoCapitalize = "none"
-               onChangeText = {this.handlePassword}/>
+          <TextInput secureTextEntry={true} style = {styles.input}
+             underlineColorAndroid = "transparent"
+             placeholder = " Password"
+             placeholderTextColor = "#9a73ef"
+             autoCapitalize = "none"
+             onChangeText = {this.handlePassword}/>
+
 
             <TouchableOpacity
                style = {styles.submitButton}
@@ -95,6 +95,8 @@ class SignIn extends Component {
 */
 export default SignIn
 
+
+//Unless there are objections, I will begin relocating this to the main stlye sheet.
 const styles = StyleSheet.create({
    container: {
      backgroundColor: 'white',
