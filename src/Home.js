@@ -20,7 +20,9 @@ class HomeScreen extends React.Component {
 }
 
 class HomeView extends React.Component {
+
   render() {
+    console.log("HOME PAGE")
     const {navigate} = this.props.navigation;
     return (
       //const Grid = ({ItemDisplayView}) => (<GridView navigation={ItemDisplayView} />);

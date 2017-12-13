@@ -9,7 +9,8 @@ export default class WebCalls extends Component {
     }
   }
 
-  function GETCall(APILink) {
+
+  GETCall = (APILink) =>{
     return fetch(APILink)
       .then((response) => response.json())
       .then((responseJson) => {
@@ -20,7 +21,7 @@ export default class WebCalls extends Component {
       });
   }
 
-  function POSTCall(APILink, request) {
+  POSTCall = (APILink, request) => {
     return fetch(APILink,{
       method: "POST",
       headers: {
@@ -39,15 +40,5 @@ export default class WebCalls extends Component {
       });
   }
 
-  function PATCHCall() {
-    return fetch('https://clothing-api.herokuapp.com/items')
-      .then((response) => response.json())
-      .then((responseJson) => {
-        return responseJson;
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }
 
 }
