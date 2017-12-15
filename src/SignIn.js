@@ -49,7 +49,7 @@ class SignIn extends Component {
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style = {styles.container}>
           <Image source={require('./assets/shwop-portland-or.jpg')} style={{width: 333, height: 130}}/>
-          <TextInput style = {styles.input}
+          <TextInput style = {styles.inputSignIn}
              underlineColorAndroid = "transparent"
              placeholder = " Email"
              placeholderTextColor = "#9a73ef"
@@ -57,7 +57,7 @@ class SignIn extends Component {
              keyboardType='email-address'
              onChangeText = {this.handleEmail}/>
 
-          <TextInput secureTextEntry={true} style = {styles.input}
+          <TextInput secureTextEntry={true} style = {styles.inputSignIn}
              underlineColorAndroid = "transparent"
              placeholder = " Password"
              placeholderTextColor = "#9a73ef"

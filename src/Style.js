@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: 23,
-    //backgroundColor: "white",
+    backgroundColor: 'white',
   },
   icon:{ //icon for navigator
     width: 24,
@@ -53,11 +53,11 @@ const styles = StyleSheet.create({
   gridItem:{
     //backgroundColor: '#CCC',
     borderWidth: 0,
-    borderColor: '#000000',
-    borderRadius: 20,
-    shadowOffset:{  width: 10,  height: 10,  },
-    shadowColor: '#000000',
-    shadowOpacity: 0.10,
+    //borderColor: '#000000',
+    //borderRadius: 20,
+    //shadowOffset:{  width: 10,  height: 10,  },
+    //shadowColor: '#000000',
+    //shadowOpacity: 0.10,
     margin: 5,
     width: 180,
     height: 200,
@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
   submitButtonText:{
      color: 'white'
   },
-  input: {
+  inputSignIn: {
      margin: 7,
      height: 35,
      borderColor: '#7a42f4',
