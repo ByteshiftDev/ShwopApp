@@ -78,9 +78,10 @@ class DisplayItemScreen extends React.Component{
     //const {item} = this.props.navigation.state.params;
     return(
       /*<Text>`${navigation.state.params.name}`</Text>*/
-      <View>
-        <Text>{params.name} is item number: {params.key} that has url: {params.url}</Text>
+      <View style={{backgroundColor: 'white'}}>
         <Image source={{ uri:params.url }} style={styles.imageLarge} />
+        <Text style={{textAlign:'center', fontSize:30}}>{params.name}</Text>
+        <Text>{params.name} is item number: {params.key} that has url: {params.url}</Text>
       </View>
     );
   }
