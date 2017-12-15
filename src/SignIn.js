@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { View, Text, TouchableOpacity, Button, TextInput, Image, StyleSheet, TouchableWithoutFeedback, Keyboard, AsyncStorage } from 'react-native'
 import { StackNavigator, reset} from 'react-navigation';
-
+import styles from './Style.js'
 
 class SignIn extends Component {
    state = {
@@ -46,7 +46,7 @@ class SignIn extends Component {
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style = {styles.container}>
           <Image source={require('./assets/shwop-portland-or.jpg')} style={{width: 333, height: 130}}/>
-          <TextInput style = {styles.input}
+          <TextInput style = {styles.inputSignIn}
              underlineColorAndroid = "transparent"
              placeholder = " Email"
              placeholderTextColor = "#9a73ef"
@@ -54,7 +54,7 @@ class SignIn extends Component {
              keyboardType='email-address'
              onChangeText = {this.handleEmail}/>
 
-          <TextInput secureTextEntry={true} style = {styles.input}
+          <TextInput secureTextEntry={true} style = {styles.inputSignIn}
              underlineColorAndroid = "transparent"
              placeholder = " Password"
              placeholderTextColor = "#9a73ef"
@@ -71,7 +71,7 @@ class SignIn extends Component {
                         this.props.navigation.state.params.onGoBack();
                         this.props.navigation.goBack()}
                }>
-               <Text style = {styles.submitButtonText}> Sign In </Text>
+               <Text style = {styles.submitButtonTextSignIn}> Sign In </Text>
             </TouchableOpacity>
 
             <Text> New to Shwop? Sign up for one </Text>
@@ -89,10 +89,11 @@ class SignIn extends Component {
 export default SignIn
 
 
+/*
 //Unless there are objections, I will begin relocating this to the main stlye sheet.
 const styles = StyleSheet.create({
    container: {
-     backgroundColor: 'white',
+     //backgroundColor: 'white',
       paddingTop: 23,
       flex: 1,
    },
@@ -110,7 +111,7 @@ const styles = StyleSheet.create({
       borderRadius:10,
       height: 40,
    },
-   submitButtonText:{
+   submitButtonTextSignIn:{
       alignItems: 'center',
       justifyContent: 'center',
       color: 'white'
@@ -128,4 +129,4 @@ const styles = StyleSheet.create({
      textAlign: 'center',
      color: '#7a42f4'
    }
-})
+})*/
