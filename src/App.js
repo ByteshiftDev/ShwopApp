@@ -7,7 +7,7 @@ import {ShwopApp} from './Navigation.js';
 export default class App extends React.Component {
 
   render() {
-    return <ShwopApp />;
+    return <MainTabNavigator />;
     /*(
       <View style={styles.container}>
         <Text>Welcome to Shwop!</Text>
