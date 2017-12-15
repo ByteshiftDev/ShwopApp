@@ -5,15 +5,6 @@ import { StyleSheet, Text, View, TouchableOpacity, Image, AsyncStorage, Navigato
 import {SignInSignUp} from './Navigation.js';
 
 class ProfileScreen extends React.Component {
-  static navigationOptions = {
-    title: 'Profile',
-    tabBarIcon: () => (
-      <Image
-        source = {require('./assets/icons/profile.png')}
-        style = {styles.icon}
-      / >
-    ),
-  };
   state = {
      email: '',
      password: '',

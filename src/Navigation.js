@@ -7,6 +7,7 @@ import Categories from './Categories.js'
 import SignIn from './SignIn.js'
 import SignUp from './SignUp.js'
 import React from 'react';
+import { Image } from 'react-native';
 
 export const SignInSignUp = StackNavigator({
   Profile: { screen: ProfileScreen },
@@ -16,16 +17,36 @@ export const SignInSignUp = StackNavigator({
 
 export const MainTabNavigator = TabNavigator({
     Home: {
-      screen: HomeScreen
+      screen: HomeScreen,
+      navigationOptions: {
+        tabBarIcon:(
+          <Image source = {require('./assets/icons/home-button.png')} style = {styles.icon} />
+        ),
+      }
     },
     ProfilePage: {
-      screen: SignInSignUp
+      screen: SignInSignUp,
+      navigationOptions: {
+        tabBarIcon:(
+          <Image source = {require('./assets/icons/profile.png')} style = {styles.icon} />
+        ),
+      }
     },
     Search: {
-      screen: SearchScreen
+      screen: SearchScreen,
+      navigationOptions: {
+        tabBarIcon:(
+          <Image source = {require('./assets/icons/search.png')} style = {styles.icon} />
+        ),
+      }
     },
     Categories: {
-      screen: Categories
+      screen: Categories,
+      navigationOptions: {
+        tabBarIcon:(
+          <Image source = {require('./assets/icons/small-bookmark.png')} style = {styles.icon} />
+        ),
+      }
     },
 },
     {
