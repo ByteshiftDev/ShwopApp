@@ -1,7 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, Button } from 'react-native';
 import styles from './Style.js';
-import {ShwopApp} from './Navigation.js';
+import MainTabNavigator from './Navigation.js';
 
 
 export default class App extends React.Component {

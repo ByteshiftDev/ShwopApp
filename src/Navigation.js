@@ -6,9 +6,7 @@ import HomeScreen from './Home.js';
 import Categories from './Categories.js'
 import SignIn from './SignIn.js'
 import SignUp from './SignUp.js'
-import TileScreen from './Tiles.js';
 import React from 'react';
-import { StyleSheet, Text, View, Image, Button } from 'react-native';
 
 export const SignInSignUp = StackNavigator({
   Profile: { screen: ProfileScreen },
@@ -16,7 +14,7 @@ export const SignInSignUp = StackNavigator({
   SignUp: { screen: SignUp }
 });
 
-export const ShwopApp = TabNavigator({
+export const MainTabNavigator = TabNavigator({
     Home: {
       screen: HomeScreen
     },
@@ -25,9 +23,6 @@ export const ShwopApp = TabNavigator({
     },
     Search: {
       screen: SearchScreen
-    },
-    Featured: {
-      screen: TileScreen
     },
     Categories: {
       screen: Categories
@@ -43,4 +38,4 @@ export const ShwopApp = TabNavigator({
 
 });
 
-//export default ShwopApp;
+export default MainTabNavigator;

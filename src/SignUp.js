@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { View, Text, Keyboard, TouchableOpacity, TextInput, Image, StyleSheet, TouchableWithoutFeedback } from 'react-native'
+import styles from './Style.js'
 
 class SignUp extends Component {
    state = {
@@ -75,7 +76,7 @@ class SignUp extends Component {
 }
 
 export default SignUp
-
+/*
 const styles = StyleSheet.create({
    container: {
       paddingTop: 23,
@@ -98,4 +99,4 @@ const styles = StyleSheet.create({
    submitButtonText:{
       color: 'white'
    }
-})
+})*/
