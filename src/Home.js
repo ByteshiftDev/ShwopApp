@@ -4,16 +4,6 @@ import { StackNavigator } from 'react-navigation';
 import { StyleSheet, Text, View, Image, TouchableOpacity, FlatList, Alert } from 'react-native';
 
 class HomeScreen extends React.Component {
-  static navigationOptions = {
-    title: 'Home',
-    tabBarIcon: () => (
-      <Image
-        source = {require('./assets/icons/home-button.png')}
-        style = {styles.icon}
-      / >
-    ),
-  };
-
   render() {
     return <ItemDisplayView />;
   }

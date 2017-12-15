@@ -91,15 +91,6 @@ const SubTabNav = TabNavigator({
 });
 
 class Categories extends React.Component {
-  static navigationOptions = {
-    title: 'Categories',
-    tabBarIcon: () => (
-      <Image
-        source = {require('./assets/icons/small-bookmark.png')}
-        style = {styles.icon}
-      / >
-    ),
-  };
   render() {
     return <SubTabNav />;
   }
