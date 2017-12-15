@@ -49,6 +49,20 @@ class ProfileScreen extends React.Component {
     }
   }
 
+  refresh(){
+    console.log("Go back is called");
+    this._loadCurrentState().done();
+    this.render();
+  }
+
+  signOut(){
+    console.log("Signing out");
+    AsyncStorage.removeItem('email');
+    AsyncStorage.removeItem('password');
+  }
+
+
+
   render() {
     console.log("Profile page")
     if(this.state.email === ''){
@@ -59,7 +73,9 @@ class ProfileScreen extends React.Component {
           <TouchableOpacity
              onPress = {
                 () => {
-                this.props.navigation.navigate("SignIn")
+                this.props.navigation.navigate("SignIn",{
+                  onGoBack: () => this.refresh(),
+                })
               }
              }>
              <Text> Sign In </Text>
@@ -78,6 +94,7 @@ class ProfileScreen extends React.Component {
                   email: '',
                   password: '',
                 })
+                this.signOut();
                 this.props.navigation.navigate("Home")
               }
 

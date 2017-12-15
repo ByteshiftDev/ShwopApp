@@ -41,10 +41,7 @@ class SignIn extends Component {
    render(){
       //const { navigate } = this.props.navigation;
       console.log("Sign In page");
-      /*
-      if(this.state.loggedIn === true){
-        return <ProfileScreen />
-      }*/
+
       return (
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style = {styles.container}>
@@ -68,8 +65,10 @@ class SignIn extends Component {
             <TouchableOpacity
                style = {styles.submitButton}
                onPress = {
-                  () => {this.login(this.state.email, this.state.password);
+                  () => {
                         Keyboard.dismiss;
+                        this.login(this.state.email, this.state.password);
+                        this.props.navigation.state.params.onGoBack();
                         this.props.navigation.goBack()}
                }>
                <Text style = {styles.submitButtonText}> Sign In </Text>
@@ -86,13 +85,7 @@ class SignIn extends Component {
       )
    }
 }
-/*
-<TouchableOpacity
-  style = {styles.signUpButton}
-  onPress={() => navigate('SignUp')}>
-  <Text style = {styles.signButtonButtonText}> Sign Up! </Text>
-</TouchableOpacity>
-*/
+
 export default SignIn
 
 
