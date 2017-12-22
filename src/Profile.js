@@ -8,6 +8,7 @@ class ProfileScreen extends React.Component {
   state = {
      email: '',
      password: '',
+     points: 10,
   }
 
   componentDidMount(){
@@ -58,10 +59,11 @@ class ProfileScreen extends React.Component {
     console.log("Profile page")
     if(this.state.email === ''){
       return (
-        <View style={styles.container}>
+        <View style={styles.profileContainer}>
           <Text>Profile Screen</Text>
           <Text>Please sign in!</Text>
           <TouchableOpacity
+             style = {styles.submitButton}
              onPress = {
                 () => {
                 this.props.navigation.navigate("SignIn",{
@@ -69,16 +71,26 @@ class ProfileScreen extends React.Component {
                 })
               }
              }>
-             <Text> Sign In </Text>
+             <Text> Sign In! </Text>
+          </TouchableOpacity>
+          <Text> New to Shwop? Sign up for one </Text>
+          <TouchableOpacity
+            style = {styles.signUpButton}
+            onPress={() => this.props.navigation.navigate('SignUp')}>
+            <Text style = {styles.signButtonButtonText}> Sign Up! </Text>
           </TouchableOpacity>
         </View>
       )
     }
     else{
       return(
-        <View style={styles.container}>
-          <Text>Profile Screen</Text>
-          <Text>Welcome {this.state.email}</Text>
+        <View style={styles.profileContainer}>
+          <Text style={{textAlign:'center'}}>Profile Screen</Text>
+          <Text style={{textAlign:'center'}}>Welcome {this.state.email}</Text>
+          <View style={styles.pointsBanner}>
+            <Text style={{fontSize:20, textAlign:'center', marginBottom:10}}> Current Points </Text>
+            <Text style={{fontSize:27, textAlign:'center'}}> {this.state.points} </Text>
+          </View>
           <TouchableOpacity
              onPress = {
                 () => {this.setState({
@@ -88,7 +100,6 @@ class ProfileScreen extends React.Component {
                 this.signOut();
                 this.props.navigation.navigate("Home")
               }
-
              }>
              <Text> Log Out </Text>
           </TouchableOpacity>
@@ -96,8 +107,6 @@ class ProfileScreen extends React.Component {
       );
     }
   }
-
-
 }
 
 export default ProfileScreen;

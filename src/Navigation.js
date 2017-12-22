@@ -56,7 +56,6 @@ export const MainTabNavigator = TabNavigator({
       tabBarOptions: {
         activeTintColor: '#570761',
       },
-
 });
 
 export default MainTabNavigator;

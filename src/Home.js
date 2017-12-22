@@ -1,7 +1,7 @@
 import styles from './Style.js';
 import React, { Component } from 'react';
 import { StackNavigator } from 'react-navigation';
-import { StyleSheet, Text, View, Image, TouchableOpacity, FlatList, Alert } from 'react-native';
+import {StyleSheet, Text, View, Image, TouchableOpacity, FlatList, Alert } from 'react-native';
 
 class HomeScreen extends React.Component {
   render() {
@@ -33,7 +33,7 @@ class HomeView extends React.Component {
       console.error(error);
     });
   }
-
+  //<ActivityIndicator animating={this.state.isLoading} size="large" color="#0000ff" />
   render() {
     console.log("HOME PAGE")
     const {navigate} = this.props.navigation;
@@ -42,21 +42,22 @@ class HomeView extends React.Component {
     return (
       //const Grid = ({ItemDisplayView}) => (<GridView navigation={ItemDisplayView} />);
       <View style={styles.container}>
-      <View><Image source={require('./assets/cover.jpg')} style={styles.banner}  /></View>
-      <FlatList
-        numColumns={2}
-        data={this.state.dataSource}
-        renderItem={({item}) =>
-        <TouchableOpacity onPress={() => navigate('DisplayItem', {name: item.name, key: item.id, url: item.url})}>
-          <View style={styles.gridItem}>
-            <View style={{alignItems:'center'}}>
-              <Image source={{ uri: item.url }} style={styles.imageTile} />
+        <View><Image source={require('./assets/shwop-home.png')} style={styles.banner}  /></View>
+
+        <FlatList
+          numColumns={2}
+          data={this.state.dataSource}
+          renderItem={({item}) =>
+          <TouchableOpacity onPress={() => navigate('DisplayItem', {name: item.name, key: item.id, url: item.url})}>
+            <View style={styles.gridItem}>
+              <View style={{alignItems:'center'}}>
+                <Image source={{ uri: item.url }} style={styles.imageTile} />
+              </View>
+              <Text style={styles.imageTileText}>{item.name}</Text>
             </View>
-            <Text style={styles.imageTileText}>{item.name}</Text>
-          </View>
-        </TouchableOpacity>
-        }
-      />
+          </TouchableOpacity>
+          }
+        />
       </View>
     );
   }
@@ -92,14 +93,3 @@ const ItemDisplayView = StackNavigator({
 );
 
 export default HomeScreen;
-
-    //const { navigate } = this.props.navigation;
-/*
-      <View style={styles.container}>
-        <Text>Welcome to Shwop! OWIEURWLI </Text>
-        <Image
-          source={require('./assets/shwop-portland-or.jpg')}
-          style={{width: 333, height: 130}}
-        />
-      </View>
-*/
