@@ -1,7 +1,7 @@
 import styles from './Style.js';
 import React, { Component } from 'react';
 import { StackNavigator } from 'react-navigation';
-import {StyleSheet, Text, View, Image, TouchableOpacity, FlatList, Alert } from 'react-native';
+import {ActivityIndicator, StyleSheet, Text, View, Image, TouchableOpacity, FlatList, Alert } from 'react-native';
 
 class HomeScreen extends React.Component {
   render() {
@@ -43,7 +43,7 @@ class HomeView extends React.Component {
       //const Grid = ({ItemDisplayView}) => (<GridView navigation={ItemDisplayView} />);
       <View style={styles.container}>
         <View><Image source={require('./assets/shwop-home.png')} style={styles.banner}  /></View>
-
+        <ActivityIndicator animating={this.state.isLoading} size="large" color="#0000ff" />
         <FlatList
           numColumns={2}
           data={this.state.dataSource}
