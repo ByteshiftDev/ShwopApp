@@ -50,6 +50,7 @@ class ProfileScreen extends React.Component {
     console.log("Signing out");
     AsyncStorage.removeItem('email');
     AsyncStorage.removeItem('password');
+    AsyncStorage.removeItem('balance');
   }
 
 

@@ -9,12 +9,47 @@ class SignIn extends Component {
       password: '',
       loggedIn: false
    }
+
    handleEmail = (text) => {
       this.setState({ email: text })
    }
    handlePassword = (text) => {
       this.setState({ password: text })
    }
+
+
+   apiCall = (email, pass) => {
+     console.log("Making API call...");
+     return fetch('https://shwop-api.herokuapp.com/members/login',
+     {
+       method: 'POST',
+       headers: {
+         'Accept': 'application/json',
+         'Content-Type': 'application/json',
+       },
+       body: JSON.stringify({
+          "member":
+            {
+            "email": email,
+            "password": pass
+          },
+       })
+     })
+     .then((response) => response.json())
+     .then((responseJson) => { this.setState({
+         loggedIn: true,
+         dataSource: responseJson,
+       });
+       console.log("Finished login API call... Done!");
+       console.log(this.state.dataSource.balance);
+       AsyncStorage.setItem('balance', parseInt(this.state.dataSource.balance));
+       return responseJson;
+     })
+     .catch((error) => {
+       console.error(error);
+     });
+   }
+
 
    login = (email, pass) => {
      if (email == ''){
@@ -24,10 +59,28 @@ class SignIn extends Component {
        alert('Please Enter Your Password!')
      }
      else{
-       //alert('email: ' + email + ' password: ' + pass)
+       // alert('email: ' + email + ' password: ' + pass)
+       // console.log('Login executed!');
        AsyncStorage.setItem('email', email)
        AsyncStorage.setItem('password', pass)
+       this.apiCall(email, pass);
 
+       if(this.state.loggedIn == true) {
+         alert("Log in success!");
+         //this.props.navigation.state.params.onGoBack();
+         //this.props.navigation.goBack()
+       };
+
+
+       // *******
+       // if logged in fails segue back
+       //
+       // if logged in
+       // this.props.navigation.state.params.onGoBack();
+       // this.props.navigation.goBack()
+
+
+     }
        console.log("GOING HOME");
        this.setState({
          loggedIn: true
@@ -35,7 +88,8 @@ class SignIn extends Component {
 
        this.render()
      }
-   }
+
+
 
 
    render(){
