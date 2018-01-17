@@ -30,20 +30,30 @@ class SignIn extends Component {
        body: JSON.stringify({
           "member":
             {
-            "email": email,
-            "password": pass
-          },
+              "email": email,
+              "password": pass
+            },
        })
      })
      .then((response) => response.json())
      .then((responseJson) => { this.setState({
          loggedIn: true,
-         dataSource: responseJson,
+         dataSource: responseJson.balance,
        });
+       console.log(email);
+       console.log(pass);
        console.log("Finished login API call... Done!");
-       console.log(this.state.dataSource.balance);
-       AsyncStorage.setItem('balance', parseInt(this.state.dataSource.balance));
+       console.log(this.state.dataSource);
+       AsyncStorage.setItem('balance', String(this.state.dataSource));
        return responseJson;
+     })
+     .then(() => {
+      if(this.state.loggedIn == true) {
+       alert("Log in success!");
+       //this.props.navigation.state.params.onGoBack();
+       //this.props.navigation.goBack()
+      };
+
      })
      .catch((error) => {
        console.error(error);
@@ -65,11 +75,7 @@ class SignIn extends Component {
        AsyncStorage.setItem('password', pass)
        this.apiCall(email, pass);
 
-       if(this.state.loggedIn == true) {
-         alert("Log in success!");
-         //this.props.navigation.state.params.onGoBack();
-         //this.props.navigation.goBack()
-       };
+
 
 
        // *******
