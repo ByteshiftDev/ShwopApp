@@ -9,6 +9,19 @@ const styles = StyleSheet.create({
     paddingTop: 23,
     backgroundColor: 'white',
   },
+  profileContainer:{
+    flex: 1,
+    paddingTop: 23,
+    backgroundColor: 'white',
+    alignItems:'center',
+  },
+  pointsBanner:{
+    height:100,
+    width: width,
+    marginTop:10,
+    marginBottom:20,
+    backgroundColor: '#B8E986',
+  },
   icon:{ //icon for navigator
     width: 24,
     height: 24
@@ -65,7 +78,7 @@ const styles = StyleSheet.create({
   },
   banner:{
     width: width,
-    height: 100,
+    height: 200,
   },
   input: {
      margin: 7,

@@ -101,7 +101,7 @@ class SignIn extends Component {
       return (
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style = {styles.container}>
-          <Image source={require('./assets/shwop-portland-or.jpg')} style={{width: 333, height: 130}}/>
+          <Image source={require('./assets/shwop-portland-or.jpg')} style={{width: 333, height: 130, flexDirection: 'column', alignItems:'center'}}/>
           <TextInput style = {styles.inputSignIn}
              underlineColorAndroid = "transparent"
              placeholder = " Email"
