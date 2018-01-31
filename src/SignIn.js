@@ -20,6 +20,7 @@ class SignIn extends Component {
 
    apiCall = (email, pass) => {
      console.log("Making API call...");
+     var proceed = false
      return fetch('https://shwop-api.herokuapp.com/members/login',
      {
        method: 'POST',
@@ -35,57 +36,68 @@ class SignIn extends Component {
           },
        })
      })
+     .then((response) =>{
+       if(response.status == 200){
+         proceed = true;
+         console.log("STATUS 200")
+         return response;
+       }
+       else{
+         console.log("STATUS ERROR")
+         proceed = false
+         return response
+       }
+     })
      .then((response) => response.json())
-     .then((responseJson) => { this.setState({
-         loggedIn: true,
-         dataSource: responseJson,
-       });
-       console.log("Finished login API call... Done!");
-       console.log(this.state.dataSource.balance);
-       AsyncStorage.setItem('balance', String(this.state.dataSource.balance));
-       return responseJson;
+     .then((responseJson) => {
+       if(proceed){
+         AsyncStorage.setItem('balance', String(this.state.dataSource))
+         AsyncStorage.setItem('email', email)
+         AsyncStorage.setItem('password', pass)
+       }
+       console.log("Finished login API call... Done!")
+       return proceed
      })
      .catch((error) => {
-       console.log("THERE WAS AN error");
-       console.error(error);
-       return null;
+       console.log("THERE WAS AN error")
+       console.error(error)
+       return false
      });
    }
 
-   login = (email, pass) => {
+   login = (email, pass, goingBack) => {
      if (email == ''){
-       alert('Please Enter Your Email!');
+       alert('Please Enter Your Email!')
      }
      else if(pass == ''){
        alert('Please Enter Your Password!')
      }
      else{
+       console.log("Making API Call");
        this.apiCall(email, pass)
-       .then(function(){
-         console.log("We pass the api call");
-         if(this.state.loggedIn == true) {
-           console.log("Log in success!");
-           AsyncStorage.setItem('email', email)
-           AsyncStorage.setItem('password', pass)
-           console.log("GOING HOME");
-           //this.render()
-         }
-         else{
-           alert('Invalid Info')
-           //this.render()
-         }
+       .then((res) => {
+         goingBack(res)
        })
      }
 
    }
 
-
-
+   goingBack = (flag) =>{
+     if (flag == true) {
+       console.log("Logged In")
+       this.props.navigation.state.params.onGoBack();
+       this.props.navigation.goBack()
+     }
+     else{
+       console.log("Invalid Login")
+       alert('Invalid Info');
+     }
+   }
 
    render(){
       //const { navigate } = this.props.navigation;
+      this.state.loggedIn = false;
       console.log("Sign In page");
-
       return (
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style = {styles.container}>
@@ -105,15 +117,13 @@ class SignIn extends Component {
              autoCapitalize = "none"
              onChangeText = {this.handlePassword}/>
 
-
             <TouchableOpacity
                style = {styles.submitButton}
                onPress = {
                   () => {
-                        Keyboard.dismiss;
-                        this.login(this.state.email, this.state.password);
-                        this.props.navigation.state.params.onGoBack();
-                        this.props.navigation.goBack()}
+                          Keyboard.dismiss;
+                          this.login(this.state.email, this.state.password, this.goingBack);
+                        }
                }>
                <Text style = {styles.submitButtonTextSignIn}> Sign In </Text>
             </TouchableOpacity>
