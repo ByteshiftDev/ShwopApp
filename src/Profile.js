@@ -4,6 +4,7 @@ import SignIn from './SignIn.js';
 import { StyleSheet, Text, View, TouchableOpacity, Image, AsyncStorage, Navigator} from 'react-native';
 import {SignInSignUp} from './Navigation.js';
 
+// two different screen - sign in page and sign up page
 class ProfileScreen extends React.Component {
   state = {
      email: '',
@@ -19,6 +20,7 @@ class ProfileScreen extends React.Component {
     this._loadCurrentState().done();
   }
 
+  // leave both - Paul will test
   _loadCurrentState = async () =>{
     var getEmail = await AsyncStorage.getItem('email')
     var getPassword = await AsyncStorage.getItem('password')
@@ -41,6 +43,7 @@ class ProfileScreen extends React.Component {
     }
   }
 
+  // reload page
   refresh(){
     console.log("Go back is called");
     this._loadCurrentState().done();
@@ -56,7 +59,9 @@ class ProfileScreen extends React.Component {
   }
 
 
-
+  // two different screens depending status, if the
+  // user is logged in their profile will show if not
+  // the sign in page will show
   render() {
     console.log("Profile page")
     if(this.state.email === ''){

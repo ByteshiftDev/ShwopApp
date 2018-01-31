@@ -9,15 +9,20 @@ import SignUp from './SignUp.js'
 import React from 'react';
 import { Image } from 'react-native';
 
+// Stack navigator for the profile page
 export const SignInSignUp = StackNavigator({
   Profile: { screen: ProfileScreen },
   SignIn: { screen: SignIn },
   SignUp: { screen: SignUp }
 });
 
+// Tab navigator(main) for the whole application
+// location: bottom of the application.
 export const MainTabNavigator = TabNavigator({
+    // tab navigation options
     Home: {
       screen: HomeScreen,
+      // options for the Home button.
       navigationOptions: {
         tabBarIcon:(
           <Image source = {require('./assets/icons/home-button.png')} style = {styles.icon} />
@@ -26,6 +31,7 @@ export const MainTabNavigator = TabNavigator({
     },
     ProfilePage: {
       screen: SignInSignUp,
+      // options for the ProfilePage button
       navigationOptions: {
         tabBarIcon:(
           <Image source = {require('./assets/icons/profile.png')} style = {styles.icon} />
@@ -34,6 +40,7 @@ export const MainTabNavigator = TabNavigator({
     },
     Search: {
       screen: SearchScreen,
+      // options for the Search button
       navigationOptions: {
         tabBarIcon:(
           <Image source = {require('./assets/icons/search.png')} style = {styles.icon} />
@@ -42,6 +49,7 @@ export const MainTabNavigator = TabNavigator({
     },
     Categories: {
       screen: Categories,
+      // options for the Categories button
       navigationOptions: {
         tabBarIcon:(
           <Image source = {require('./assets/icons/small-bookmark.png')} style = {styles.icon} />
@@ -49,6 +57,7 @@ export const MainTabNavigator = TabNavigator({
       }
     },
 },
+    // options for the whole tab navigator 
     {
       tabBarPosition: 'bottom',
       animationEnabled: false,

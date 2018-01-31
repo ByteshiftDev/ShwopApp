@@ -3,14 +3,15 @@ import React, { Component } from 'react';
 import { StackNavigator } from 'react-navigation';
 import {ActivityIndicator, StyleSheet, Text, View, Image, TouchableOpacity, FlatList, Alert } from 'react-native';
 
+// Class that holds the stack navigation for the clothing items
 class HomeScreen extends React.Component {
   render() {
     return <ItemDisplayView />;
   }
 }
 
+// The main home view that holds the top displayed item
 class HomeView extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -18,6 +19,7 @@ class HomeView extends React.Component {
     }
   }
 
+  // function that makes the API call to retrieve clothing items
   componentDidMount() {
     console.log("Making API call...");
     return fetch('https://clothing-api.herokuapp.com/items')
@@ -33,6 +35,10 @@ class HomeView extends React.Component {
       console.error(error);
     });
   }
+
+  // displays a banner and a scrollview of the items
+  // when a user press onto a item square it stacks a new view
+  // of the item
   //<ActivityIndicator animating={this.state.isLoading} size="large" color="#0000ff" />
   render() {
     console.log("HOME PAGE")
@@ -63,12 +69,13 @@ class HomeView extends React.Component {
   }
 }
 
+// Displays item that the user clicked on to view
+// displays the item's image and information 
 class DisplayItemScreen extends React.Component{
   render(){
     const {params} = this.props.navigation.state;
     //const {item} = this.props.navigation.state.params;
     return(
-      /*<Text>`${navigation.state.params.name}`</Text>*/
       <View style={{backgroundColor: 'white'}}>
         <Image source={{ uri:params.url }} style={styles.imageLarge} />
         <Text style={{textAlign:'center', fontSize:30}}>{params.name}</Text>
@@ -78,6 +85,8 @@ class DisplayItemScreen extends React.Component{
   }
 }
 
+// stack navigator that holds the home view and the item display View
+// have it so users can go back and forth between viewing items.
 const ItemDisplayView = StackNavigator({
   HomeView: {screen: HomeView,
     navigationOptions: ({navigation}) => ({header: false}),
@@ -87,9 +96,6 @@ const ItemDisplayView = StackNavigator({
     title: `${navigation.state.params.name}`}),
   }
 },
-  //{
-  //  headerMode: 'none',
-  //}
 );
 
 export default HomeScreen;
