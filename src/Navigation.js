@@ -11,9 +11,24 @@ import { Image } from 'react-native';
 
 // Stack navigator for the profile page
 export const SignInSignUp = StackNavigator({
-  Profile: { screen: ProfileScreen },
-  SignIn: { screen: SignIn },
-  SignUp: { screen: SignUp }
+  Profile: {
+    screen: ProfileScreen,
+    navigationOptions:{
+      title: 'Profile',
+    }
+   },
+  SignIn: {
+    screen: SignIn,
+    navigationOptions:{
+      title: 'Sign In',
+    }
+  },
+  SignUp: {
+    screen: SignUp ,
+    navigationOptions:{
+      title: 'Sign Up',
+    }
+  }
 });
 
 // Tab navigator(main) for the whole application
@@ -57,7 +72,7 @@ export const MainTabNavigator = TabNavigator({
       }
     },
 },
-    // options for the whole tab navigator 
+    // options for the whole tab navigator
     {
       tabBarPosition: 'bottom',
       animationEnabled: false,

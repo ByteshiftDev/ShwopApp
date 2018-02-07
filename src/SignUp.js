@@ -42,12 +42,14 @@ class SignUp extends Component {
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
          <View style = {styles.container}>
           <Image source={require('./assets/shwop-portland-or.jpg')} style={{width: 333, height: 130}}/>
+          <View style = {{flexDirection:'row'}}>
           <TextInput style = {styles.input}
              underlineColorAndroid = "transparent"
              placeholder = "Name"
              placeholderTextColor = "#9a73ef"
              autoCapitalize = "none"/>
-
+          </View>
+          <View style = {{flexDirection:'row'}}>
           <TextInput style = {styles.input}
                underlineColorAndroid = "transparent"
                placeholder = "Email"
@@ -55,14 +57,15 @@ class SignUp extends Component {
                autoCapitalize = "none"
                keyboardType='email-address'
                onChangeText = {this.handleEmail}/>
-
+            </View>
+            <View style = {{flexDirection:'row'}}>
             <TextInput secureTextEntry={true} style = {styles.input}
                underlineColorAndroid = "transparent"
                placeholder = "Password"
                placeholderTextColor = "#9a73ef"
                autoCapitalize = "none"
                onChangeText = {this.handlePassword}/>
-
+            </View>
             <TouchableOpacity
                style = {styles.submitButton}
                onPress = {

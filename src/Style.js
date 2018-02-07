@@ -8,6 +8,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: 23,
     backgroundColor: 'white',
+    alignItems: 'center',
   },
   profileContainer:{
     flex: 1,
@@ -21,6 +22,12 @@ const styles = StyleSheet.create({
     marginTop:10,
     marginBottom:20,
     backgroundColor: '#B8E986',
+  },
+  itemDisplayContainer:{
+    flex: 1,
+    paddingTop: 25,
+    backgroundColor: 'white',
+    alignItems: 'center',
   },
   icon:{ //icon for navigator
     width: 24,
@@ -50,9 +57,9 @@ const styles = StyleSheet.create({
     margin: 15,
     marginTop: 5,
     textAlign: 'center',
-    color: 'steelblue',
-    fontWeight: 'bold',
-    fontStyle: 'italic',
+    color: 'black',
+    //fontWeight: 'bold',
+    //fontStyle: 'italic',
     fontSize: 16,
   },
 
@@ -84,6 +91,7 @@ const styles = StyleSheet.create({
      margin: 7,
      height: 40,
      borderColor: '#7a42f4',
+     flex: 0.8,
      borderRadius:10,
      borderWidth: 1
   },
@@ -101,6 +109,7 @@ const styles = StyleSheet.create({
      margin: 7,
      height: 35,
      borderColor: '#7a42f4',
+     flex: 0.8,
      borderRadius:10,
      borderWidth: 1
   },
