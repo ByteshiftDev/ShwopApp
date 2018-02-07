@@ -102,6 +102,7 @@ class SignIn extends Component {
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style = {styles.container}>
           <Image source={require('./assets/shwop-portland-or.jpg')} style={{width: 333, height: 130, flexDirection: 'column', alignItems:'center'}}/>
+          <View style = {{flexDirection:'row'}}>
           <TextInput style = {styles.inputSignIn}
              underlineColorAndroid = "transparent"
              placeholder = " Email"
@@ -109,14 +110,15 @@ class SignIn extends Component {
              autoCapitalize = "none"
              keyboardType='email-address'
              onChangeText = {this.handleEmail}/>
-
+          </View>
+          <View style = {{flexDirection:'row'}}>
           <TextInput secureTextEntry={true} style = {styles.inputSignIn}
              underlineColorAndroid = "transparent"
              placeholder = " Password"
              placeholderTextColor = "#9a73ef"
              autoCapitalize = "none"
              onChangeText = {this.handlePassword}/>
-
+          </View>
             <TouchableOpacity
                style = {styles.submitButton}
                onPress = {

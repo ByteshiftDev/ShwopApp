@@ -8,6 +8,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: 23,
     backgroundColor: 'white',
+    alignItems: 'center',
   },
   profileContainer:{
     flex: 1,
@@ -90,6 +91,7 @@ const styles = StyleSheet.create({
      margin: 7,
      height: 40,
      borderColor: '#7a42f4',
+     flex: 0.8,
      borderRadius:10,
      borderWidth: 1
   },
@@ -107,6 +109,7 @@ const styles = StyleSheet.create({
      margin: 7,
      height: 35,
      borderColor: '#7a42f4',
+     flex: 0.8,
      borderRadius:10,
      borderWidth: 1
   },
