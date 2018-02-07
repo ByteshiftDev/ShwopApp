@@ -22,7 +22,8 @@ class HomeView extends React.Component {
   // function that makes the API call to retrieve clothing items
   componentDidMount() {
     console.log("Making API call...");
-    return fetch('https://clothing-api.herokuapp.com/items')
+    //return fetch('https://clothing-api.herokuapp.com/items')
+    return fetch('https://shwop-api.herokuapp.com/items')
     .then((response) => response.json())
     .then((responseJson) => { this.setState({
         isLoading: false,
@@ -69,21 +70,24 @@ class HomeView extends React.Component {
   }
 }
 
+
 // Displays item that the user clicked on to view
-// displays the item's image and information 
+// displays the item's image and information
 class DisplayItemScreen extends React.Component{
   render(){
     const {params} = this.props.navigation.state;
     //const {item} = this.props.navigation.state.params;
     return(
-      <View style={{backgroundColor: 'white'}}>
-        <Image source={{ uri:params.url }} style={styles.imageLarge} />
+      <View style={styles.itemDisplayContainer}>
         <Text style={{textAlign:'center', fontSize:30}}>{params.name}</Text>
-        <Text>{params.name} is item number: {params.key} that has url: {params.url}</Text>
+        <Image source={{ uri:params.url }} style={styles.imageLarge} />
+        <Text style={{paddingLeft: 15, paddingRight: 15}}>item number: {params.key}</Text>
+        <Text style={{paddingLeft: 15, paddingRight: 15}}>url: {params.url}</Text>
       </View>
     );
   }
 }
+
 
 // stack navigator that holds the home view and the item display View
 // have it so users can go back and forth between viewing items.

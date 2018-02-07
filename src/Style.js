@@ -22,6 +22,12 @@ const styles = StyleSheet.create({
     marginBottom:20,
     backgroundColor: '#B8E986',
   },
+  itemDisplayContainer:{
+    flex: 1,
+    paddingTop: 25,
+    backgroundColor: 'white',
+    alignItems: 'center',
+  },
   icon:{ //icon for navigator
     width: 24,
     height: 24
@@ -50,9 +56,9 @@ const styles = StyleSheet.create({
     margin: 15,
     marginTop: 5,
     textAlign: 'center',
-    color: 'steelblue',
-    fontWeight: 'bold',
-    fontStyle: 'italic',
+    color: 'black',
+    //fontWeight: 'bold',
+    //fontStyle: 'italic',
     fontSize: 16,
   },
 
