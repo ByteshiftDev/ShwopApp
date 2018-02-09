@@ -99,7 +99,7 @@ const ItemDisplayView = StackNavigator({
     navigationOptions: ({navigation}) => ({
     title: `${navigation.state.params.name}`}),
   }
-},
+  },
 );
 
 export default HomeScreen;

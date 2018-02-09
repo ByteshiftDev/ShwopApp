@@ -10,6 +10,11 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     alignItems: 'center',
   },
+  searchContainer:{
+    flex: 1,
+    paddingTop: 23,
+    backgroundColor: 'white',
+  },
   profileContainer:{
     flex: 1,
     paddingTop: 23,
