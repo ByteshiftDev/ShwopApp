@@ -20,6 +20,7 @@ class SignIn extends Component {
 
    apiCall = (email, pass) => {
      console.log("Making API call...");
+     var proceed = false
      return fetch('https://shwop-api.herokuapp.com/members/login',
      {
        method: 'POST',
@@ -35,7 +36,20 @@ class SignIn extends Component {
             },
        })
      })
+     .then((response) =>{
+       if(response.status == 200){
+         proceed = true;
+         console.log("STATUS 200")
+         return response;
+       }
+       else{
+         console.log("STATUS ERROR")
+         proceed = false
+         return response
+       }
+     })
      .then((response) => response.json())
+<<<<<<< HEAD
      .then((responseJson) => { this.setState({
          loggedIn: true,
          dataSource: responseJson.balance,
@@ -46,6 +60,16 @@ class SignIn extends Component {
        console.log(this.state.dataSource);
        AsyncStorage.setItem('balance', String(this.state.dataSource));
        return responseJson;
+=======
+     .then((responseJson) => {
+       if(proceed){
+         AsyncStorage.setItem('balance', String(this.state.dataSource))
+         AsyncStorage.setItem('email', email)
+         AsyncStorage.setItem('password', pass)
+       }
+       console.log("Finished login API call... Done!")
+       return proceed
+>>>>>>> b14f9b5ddff48b6f76b4adcc1d5089f700afc3dd
      })
      .then(() => {
       if(this.state.loggedIn == true) {
@@ -56,19 +80,21 @@ class SignIn extends Component {
 
      })
      .catch((error) => {
-       console.error(error);
+       console.log("THERE WAS AN error")
+       console.error(error)
+       return false
      });
    }
 
-
-   login = (email, pass) => {
+   login = (email, pass, goingBack) => {
      if (email == ''){
-       alert('Please Enter Your Email!');
+       alert('Please Enter Your Email!')
      }
      else if(pass == ''){
        alert('Please Enter Your Password!')
      }
      else{
+<<<<<<< HEAD
        // alert('email: ' + email + ' password: ' + pass)
        // console.log('Login executed!');
        AsyncStorage.setItem('email', email)
@@ -90,22 +116,38 @@ class SignIn extends Component {
        console.log("GOING HOME");
        this.setState({
          loggedIn: true
+=======
+       console.log("Making API Call");
+       this.apiCall(email, pass)
+       .then((res) => {
+         goingBack(res)
+>>>>>>> b14f9b5ddff48b6f76b4adcc1d5089f700afc3dd
        })
-
-       this.render()
      }
 
+   }
 
-
+   goingBack = (flag) =>{
+     if (flag == true) {
+       console.log("Logged In")
+       this.props.navigation.state.params.onGoBack();
+       this.props.navigation.goBack()
+     }
+     else{
+       console.log("Invalid Login")
+       alert('Invalid Info');
+     }
+   }
 
    render(){
       //const { navigate } = this.props.navigation;
+      this.state.loggedIn = false;
       console.log("Sign In page");
-
       return (
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style = {styles.container}>
-          <Image source={require('./assets/shwop-portland-or.jpg')} style={{width: 333, height: 130}}/>
+          <Image source={require('./assets/shwop-portland-or.jpg')} style={{width: 333, height: 130, flexDirection: 'column', alignItems:'center'}}/>
+          <View style = {{flexDirection:'row'}}>
           <TextInput style = {styles.inputSignIn}
              underlineColorAndroid = "transparent"
              placeholder = " Email"
@@ -113,23 +155,22 @@ class SignIn extends Component {
              autoCapitalize = "none"
              keyboardType='email-address'
              onChangeText = {this.handleEmail}/>
-
+          </View>
+          <View style = {{flexDirection:'row'}}>
           <TextInput secureTextEntry={true} style = {styles.inputSignIn}
              underlineColorAndroid = "transparent"
              placeholder = " Password"
              placeholderTextColor = "#9a73ef"
              autoCapitalize = "none"
              onChangeText = {this.handlePassword}/>
-
-
+          </View>
             <TouchableOpacity
                style = {styles.submitButton}
                onPress = {
                   () => {
-                        Keyboard.dismiss;
-                        this.login(this.state.email, this.state.password);
-                        this.props.navigation.state.params.onGoBack();
-                        this.props.navigation.goBack()}
+                          Keyboard.dismiss;
+                          this.login(this.state.email, this.state.password, this.goingBack);
+                        }
                }>
                <Text style = {styles.submitButtonTextSignIn}> Sign In </Text>
             </TouchableOpacity>
@@ -147,46 +188,3 @@ class SignIn extends Component {
 }
 
 export default SignIn
-
-
-/*
-//Unless there are objections, I will begin relocating this to the main stlye sheet.
-const styles = StyleSheet.create({
-   container: {
-     //backgroundColor: 'white',
-      paddingTop: 23,
-      flex: 1,
-   },
-   input: {
-      margin: 7,
-      height: 35,
-      borderColor: '#7a42f4',
-      borderRadius:10,
-      borderWidth: 1
-   },
-   submitButton: {
-      backgroundColor: '#B8E986',
-      padding: 10,
-      margin: 10,
-      borderRadius:10,
-      height: 40,
-   },
-   submitButtonTextSignIn:{
-      alignItems: 'center',
-      justifyContent: 'center',
-      color: 'white'
-   },
-   signUpButton:{
-     backgroundColor: 'white',
-     padding: 10,
-     margin: 10,
-     borderRadius:10,
-     height: 40,
-     borderWidth: 1,
-     borderColor: '#B8E986',
-   },
-   signUpButtonText:{
-     textAlign: 'center',
-     color: '#7a42f4'
-   }
-})*/

@@ -1,16 +1,17 @@
 import styles from './Style.js';
 import React, { Component } from 'react';
 import { StackNavigator } from 'react-navigation';
-import { StyleSheet, Text, View, Image, TouchableOpacity, FlatList, Alert } from 'react-native';
+import {ActivityIndicator, StyleSheet, Text, View, Image, TouchableOpacity, FlatList, Alert } from 'react-native';
 
+// Class that holds the stack navigation for the clothing items
 class HomeScreen extends React.Component {
   render() {
     return <ItemDisplayView />;
   }
 }
 
+// The main home view that holds the top displayed item
 class HomeView extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -18,9 +19,11 @@ class HomeView extends React.Component {
     }
   }
 
+  // function that makes the API call to retrieve clothing items
   componentDidMount() {
     console.log("Making API call...");
-    return fetch('https://clothing-api.herokuapp.com/items')
+    //return fetch('https://clothing-api.herokuapp.com/items')
+    return fetch('https://shwop-api.herokuapp.com/items')
     .then((response) => response.json())
     .then((responseJson) => { this.setState({
         isLoading: false,
@@ -34,6 +37,10 @@ class HomeView extends React.Component {
     });
   }
 
+  // displays a banner and a scrollview of the items
+  // when a user press onto a item square it stacks a new view
+  // of the item
+  //<ActivityIndicator animating={this.state.isLoading} size="large" color="#0000ff" />
   render() {
     console.log("HOME PAGE")
     const {navigate} = this.props.navigation;
@@ -42,41 +49,48 @@ class HomeView extends React.Component {
     return (
       //const Grid = ({ItemDisplayView}) => (<GridView navigation={ItemDisplayView} />);
       <View style={styles.container}>
-      <View><Image source={require('./assets/cover.jpg')} style={styles.banner}  /></View>
-      <FlatList
-        numColumns={2}
-        data={this.state.dataSource}
-        renderItem={({item}) =>
-        <TouchableOpacity onPress={() => navigate('DisplayItem', {name: item.name, key: item.id, url: item.url})}>
-          <View style={styles.gridItem}>
-            <View style={{alignItems:'center'}}>
-              <Image source={{ uri: item.url }} style={styles.imageTile} />
+        <View><Image source={require('./assets/shwop-home.png')} style={styles.banner}  /></View>
+        <ActivityIndicator animating={this.state.isLoading} size="large" color="#0000ff" />
+        <FlatList
+          numColumns={2}
+          data={this.state.dataSource}
+          renderItem={({item}) =>
+          <TouchableOpacity onPress={() => navigate('DisplayItem', {name: item.name, key: item.id, url: item.url})}>
+            <View style={styles.gridItem}>
+              <View style={{alignItems:'center'}}>
+                <Image source={{ uri: item.url }} style={styles.imageTile} />
+              </View>
+              <Text style={styles.imageTileText}>{item.name}</Text>
             </View>
-            <Text style={styles.imageTileText}>{item.name}</Text>
-          </View>
-        </TouchableOpacity>
-        }
-      />
+          </TouchableOpacity>
+          }
+        />
       </View>
     );
   }
 }
 
+
+// Displays item that the user clicked on to view
+// displays the item's image and information
 class DisplayItemScreen extends React.Component{
   render(){
     const {params} = this.props.navigation.state;
     //const {item} = this.props.navigation.state.params;
     return(
-      /*<Text>`${navigation.state.params.name}`</Text>*/
-      <View style={{backgroundColor: 'white'}}>
-        <Image source={{ uri:params.url }} style={styles.imageLarge} />
+      <View style={styles.itemDisplayContainer}>
         <Text style={{textAlign:'center', fontSize:30}}>{params.name}</Text>
-        <Text>{params.name} is item number: {params.key} that has url: {params.url}</Text>
+        <Image source={{ uri:params.url }} style={styles.imageLarge} />
+        <Text style={{paddingLeft: 15, paddingRight: 15}}>item number: {params.key}</Text>
+        <Text style={{paddingLeft: 15, paddingRight: 15}}>url: {params.url}</Text>
       </View>
     );
   }
 }
 
+
+// stack navigator that holds the home view and the item display View
+// have it so users can go back and forth between viewing items.
 const ItemDisplayView = StackNavigator({
   HomeView: {screen: HomeView,
     navigationOptions: ({navigation}) => ({header: false}),
@@ -86,20 +100,6 @@ const ItemDisplayView = StackNavigator({
     title: `${navigation.state.params.name}`}),
   }
 },
-  //{
-  //  headerMode: 'none',
-  //}
 );
 
 export default HomeScreen;
-
-    //const { navigate } = this.props.navigation;
-/*
-      <View style={styles.container}>
-        <Text>Welcome to Shwop! OWIEURWLI </Text>
-        <Image
-          source={require('./assets/shwop-portland-or.jpg')}
-          style={{width: 333, height: 130}}
-        />
-      </View>
-*/

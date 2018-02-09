@@ -33,6 +33,7 @@ class SignUp extends Component {
      }
      else{
       alert('name: ' + name + 'email: ' + email + ' password: ' + pass)
+      this.props.navigation.goBack();
      }
    }
 
@@ -41,12 +42,14 @@ class SignUp extends Component {
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
          <View style = {styles.container}>
           <Image source={require('./assets/shwop-portland-or.jpg')} style={{width: 333, height: 130}}/>
+          <View style = {{flexDirection:'row'}}>
           <TextInput style = {styles.input}
              underlineColorAndroid = "transparent"
              placeholder = "Name"
              placeholderTextColor = "#9a73ef"
              autoCapitalize = "none"/>
-
+          </View>
+          <View style = {{flexDirection:'row'}}>
           <TextInput style = {styles.input}
                underlineColorAndroid = "transparent"
                placeholder = "Email"
@@ -54,18 +57,21 @@ class SignUp extends Component {
                autoCapitalize = "none"
                keyboardType='email-address'
                onChangeText = {this.handleEmail}/>
-
+            </View>
+            <View style = {{flexDirection:'row'}}>
             <TextInput secureTextEntry={true} style = {styles.input}
                underlineColorAndroid = "transparent"
                placeholder = "Password"
                placeholderTextColor = "#9a73ef"
                autoCapitalize = "none"
                onChangeText = {this.handlePassword}/>
-
+            </View>
             <TouchableOpacity
                style = {styles.submitButton}
                onPress = {
-                  () => this.login(this.state.name, this.state.email, this.state.password)
+                  () => {
+                    this.login(this.state.name, this.state.email, this.state.password)
+                  }
                }>
                <Text style = {styles.submitButtonText}> Sign Up </Text>
             </TouchableOpacity>
@@ -76,27 +82,3 @@ class SignUp extends Component {
 }
 
 export default SignUp
-/*
-const styles = StyleSheet.create({
-   container: {
-      paddingTop: 23,
-      flex: 1,
-   },
-   input: {
-      margin: 7,
-      height: 40,
-      borderColor: '#7a42f4',
-      borderRadius:10,
-      borderWidth: 1
-   },
-   submitButton: {
-     backgroundColor: '#B8E986',
-     padding: 10,
-     margin: 10,
-     borderRadius:10,
-     height: 40,
-   },
-   submitButtonText:{
-      color: 'white'
-   }
-})*/
