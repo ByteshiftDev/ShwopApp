@@ -9,6 +9,9 @@ class SignUp extends Component {
       name: ''
    }
 
+   handleName = (text) => {
+      this.setState({ name: text })
+   }
    handleEmail = (text) => {
       this.setState({ email: text })
    }
@@ -24,16 +27,40 @@ class SignUp extends Component {
      return true;
    }
 
+   apiCall = (name,email, pw) => {
+     var url = 'https://shwop-api.herokuapp.com/members/signup?first_name='+name+'&last_name='+name+'&email='+email+'&password='+pw
+     return fetch(url,
+     {
+       method: 'POST',
+     })
+     .then((response) =>{
+       return true
+     })
+     .catch((error) => {
+       console.log("THERE WAS AN error")
+       console.error(error)
+       return false
+     })
+   }
+
    login = (name, email, pass) => {
-     if(name == '', email == '', pass == ''){
+     if(name == '' || email == '' || pass == ''){
        alert("Please enter info!")
      }
-     else if (this.validateEmail(email) == false) {
+     /*else if (this.validateEmail(email) == false) {
        alert('Please provide a valid email address');
-     }
+     }*/
      else{
-      alert('name: ' + name + 'email: ' + email + ' password: ' + pass)
-      this.props.navigation.goBack();
+      this.apiCall(name,email,pass)
+      .then((res) => {
+        if(res == true){
+          console.log(name + " " + email + " " + pass);
+          this.props.navigation.goBack();
+        }
+        else{
+          alert("Unable to sign up account")
+        }
+      })
      }
    }
 
@@ -47,7 +74,8 @@ class SignUp extends Component {
              underlineColorAndroid = "transparent"
              placeholder = "Name"
              placeholderTextColor = "#9a73ef"
-             autoCapitalize = "none"/>
+             autoCapitalize = "none"
+             onChangeText = {this.handleName}/>
           </View>
           <View style = {{flexDirection:'row'}}>
           <TextInput style = {styles.input}
