@@ -10,6 +10,21 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     alignItems: 'center',
   },
+  homeContainer:{
+    flex: 1,
+    paddingTop: 23,
+    backgroundColor: 'white',
+  },
+  categoriesContainer:{
+    flex: 1,
+    paddingTop: 23,
+    backgroundColor: 'white',
+  },
+  searchContainer:{
+    flex: 1,
+    paddingTop: 23,
+    backgroundColor: 'white',
+  },
   profileContainer:{
     flex: 1,
     paddingTop: 23,

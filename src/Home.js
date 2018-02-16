@@ -45,10 +45,10 @@ class HomeView extends React.Component {
     console.log("HOME PAGE")
     const {navigate} = this.props.navigation;
     console.log("Attempting to load files from datasource...");
-    console.log(this.state.dataSource);
+    //console.log(this.state.dataSource);
     return (
       //const Grid = ({ItemDisplayView}) => (<GridView navigation={ItemDisplayView} />);
-      <View style={styles.container}>
+      <View style={styles.homeContainer}>
         <View><Image source={require('./assets/shwop-home.png')} style={styles.banner}  /></View>
         <ActivityIndicator animating={this.state.isLoading} size="large" color="#0000ff" />
         <FlatList

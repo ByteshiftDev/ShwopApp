@@ -10,7 +10,7 @@ class SearchScreen extends React.Component {
 
   render() {
     return(
-      <View style={styles.container}>
+      <View style={styles.searchContainer}>
         <TextInput
           style = {styles.searchBar}
           onChangeText = {(text) => this.setState({text})}
