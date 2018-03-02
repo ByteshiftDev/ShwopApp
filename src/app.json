@@ -13,10 +13,15 @@
       "icon": "./assets/icons/loading-icon.png"
     },
     "packagerOpts": {
-      "assetExts": ["ttf", "mp4"]
+      "assetExts": [
+        "ttf",
+        "mp4"
+      ]
     },
     "ios": {
       "supportsTablet": true
     }
-  }
+  },
+  "name": "ShwopApp",
+  "displayName": "Shwop"
 }
